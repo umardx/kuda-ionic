@@ -35,6 +35,7 @@ export class SigninPage {
       buttons: ['OK']
     }).present();
   }
+  
   SignIn() {
   	//console.log(this.email.value, this.password.value)
     this.fire.auth.signInWithEmailAndPassword(this.email.value, this.password.value)

@@ -19,11 +19,19 @@ export class SignupPage {
 	@ViewChild('email') email;
 	@ViewChild('password') password;
 
-  constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
+  }
+
+  alert(message: string) {
+    this.alertCtrl.create({
+      title: 'Info!',
+      subTitle: message,
+      buttons: ['OK']
+    }).present();
   }
 
   SignUp() {
@@ -31,9 +39,11 @@ export class SignupPage {
     this.fire.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
     .then(data => {
       console.log('got data ', data);
+      this.alert('Registered!');
     })
     .catch(error => {
       console.log('got an error ', error);
+      this.alert(error.message);
     });
 
   }
