@@ -1,4 +1,4 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+This is a kuda ionic project template for [Ionic](http://ionicframework.com/docs/) projects.
 
 ## How to use this template
 
@@ -12,10 +12,10 @@ Take the name after `ionic2-starter-`, and that is the name of the template to b
 
 ```bash
 $ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+$ ionic start kuda-ionic tabs
 ```
 
-Then, to run it, cd into `myBlank` and run:
+Then, to run it, cd into `kuda-ionic` and run:
 
 ```bash
 $ ionic cordova platform add ios
