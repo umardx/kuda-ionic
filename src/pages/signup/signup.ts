@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /**
  * Generated class for the SignupPage page.
@@ -15,11 +16,10 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 })
 export class SignupPage {
 
-	@ViewChild('username') username;
 	@ViewChild('email') email;
 	@ViewChild('password') password;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -27,14 +27,15 @@ export class SignupPage {
   }
 
   SignUp() {
-  	//console.log(this.username.value, this.password.value)
-  	if (this.username.value == "admin" && this.password.value == "admin") {
-  		let alert = this.alertCtrl.create({
-	    title: 'Sign Up Successful!',
-	    buttons: ['OK']
+  	//console.log(this.email.value, this.password.value);
+    this.fire.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
+    .then(data => {
+      console.log('got data ', data);
+    })
+    .catch(error => {
+      console.log('got an error ', error);
     });
-    alert.present();
-  	}
+
   }
 
 }

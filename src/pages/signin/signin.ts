@@ -1,5 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+import { LoggedinPage } from '../loggedin/loggedin';
 
 /**
  * Generated class for the SigninPage page.
@@ -15,26 +18,35 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 })
 export class SigninPage {
 
-	@ViewChild('username') username;
+	@ViewChild('email') email;
 	@ViewChild('password') password;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SigninPage');
   }
 
-  SignIn() {
-  	//console.log(this.username.value, this.password.value)
-  	if (this.username.value == "admin" && this.password.value == "admin") {
-  		let alert = this.alertCtrl.create({
-	    title: 'Login Successful!',
-	    subTitle: 'You are logged in',
-	    buttons: ['OK']
-    });
-    alert.present();
-  	}
+  alert(message: string) {
+    this.alertCtrl.create({
+      title: 'Info!',
+      subTitle: message,
+      buttons: ['OK']
+    }).present();
   }
-
+  SignIn() {
+  	//console.log(this.email.value, this.password.value)
+    this.fire.auth.signInWithEmailAndPassword(this.email.value, this.password.value)
+    .then(data => {
+      console.log('got data ', data);
+      this.alert('Success! You \'re logged in!');
+      this.navCtrl.setRoot(LoggedinPage);
+    })
+    .catch(error => {
+      console.log('got an error ', error);
+      this.alert(error.message);
+    });
+  }
+  
 }
