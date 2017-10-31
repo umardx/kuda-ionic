@@ -18,8 +18,16 @@ export class LoggedinPage {
 
 	email: string;
 
-  constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    private fire: AngularFireAuth,
+    public navCtrl: NavController,
+    public navParams: NavParams) {
+
   	this.email = fire.auth.currentUser.email;
+  }
+
+  SignOut() {
+  	this.fire.auth.signOut();
   }
 
   ionViewDidLoad() {
