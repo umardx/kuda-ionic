@@ -24,3 +24,10 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+### To setup from git :
+
+```bash
+$ git clone https://github.com/umardx/kuda-ionic
+$ npm install
+$ ionic serve
+```
