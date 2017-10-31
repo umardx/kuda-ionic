@@ -11,7 +11,9 @@ import { HomePage } from '../pages/home/home';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
-
+import { FeedPage } from '../pages/feed/feed';
+import { ModulPage } from '../pages/modul/modul';
+import { AccountPage } from '../pages/account/account';
 
 // Ref: https://www.youtube.com/watch?v=qKajGwYe4TI&index=11&list=PLYxzS__5yYQng-XnJhB21Jc7NW1OIaqct
 const firebaseAuth = {
@@ -30,7 +32,10 @@ const firebaseAuth = {
     HomePage,
     SigninPage,
     SignupPage,
-    LoggedinPage
+    LoggedinPage,
+    FeedPage,
+    ModulPage,
+    AccountPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,10 @@ const firebaseAuth = {
     HomePage,
     SigninPage,
     SignupPage,
-    LoggedinPage
+    LoggedinPage,
+    FeedPage,
+    ModulPage,
+    AccountPage
   ],
   providers: [
     StatusBar,
