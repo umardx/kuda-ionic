@@ -31,8 +31,8 @@ export class SigninPage {
   alert(message: string) {
     this.alertCtrl.create({
       title: 'Info!',
-      subTitle: message,
-      buttons: ['OK']
+      subTitle: message
+      //buttons: ['OK']
     }).present();
   }
   
