@@ -16,8 +16,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class SignupPage {
 
+  @ViewChild('nim') nim;
 	@ViewChild('email') email;
 	@ViewChild('password') password;
+  @ViewChild('retype_password') retype_password;
 
   constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
@@ -36,6 +38,16 @@ export class SignupPage {
 
   SignUp() {
   	//console.log(this.email.value, this.password.value);
+    if(this.password.value !== this.retype_password.value) {
+      let alert = this.alertCtrl.create({
+        title: 'Error',
+        message: 'Your password and your re-entered password does not match each other.',
+        buttons: ['OK']
+      });
+      alert.present();
+      return;
+    }
+    
     this.fire.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
     .then(data => {
       console.log('got data ', data);

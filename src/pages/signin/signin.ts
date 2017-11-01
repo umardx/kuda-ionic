@@ -18,7 +18,6 @@ import { LoggedinPage } from '../loggedin/loggedin';
 })
 export class SigninPage {
 
-  @ViewChild('nim') nim;
 	@ViewChild('email') email;
 	@ViewChild('password') password;
 
@@ -42,7 +41,6 @@ export class SigninPage {
     .then(data => {
       console.log('got data ', data);
       this.alert('Success! You \'re logged in!');
-      this.navCtrl.setRoot(LoggedinPage);
     })
     .catch(error => {
       console.log('got error ', error);
