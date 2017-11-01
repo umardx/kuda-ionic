@@ -5,7 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { HomePage } from '../pages/home/home';
-import { LoggedinPage } from '../pages/loggedin/loggedin';
+import { TabsPage } from '../pages/tabs/tabs';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -17,7 +18,7 @@ export class MyApp {
       if(!auth)
         this.rootPage = HomePage;
       else
-        this.rootPage = LoggedinPage;
+        this.rootPage = TabsPage;
     });
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

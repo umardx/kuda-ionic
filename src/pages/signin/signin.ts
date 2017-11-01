@@ -2,8 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-import { LoggedinPage } from '../loggedin/loggedin';
-
 /**
  * Generated class for the SigninPage page.
  *
