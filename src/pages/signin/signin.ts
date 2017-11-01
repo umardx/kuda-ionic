@@ -18,6 +18,7 @@ import { LoggedinPage } from '../loggedin/loggedin';
 })
 export class SigninPage {
 
+  @ViewChild('nim') nim;
 	@ViewChild('email') email;
 	@ViewChild('password') password;
 
@@ -31,13 +32,12 @@ export class SigninPage {
   alert(message: string) {
     this.alertCtrl.create({
       title: 'Info!',
-      subTitle: message
-      //buttons: ['OK']
+      subTitle: message,
+      buttons: ['OK']
     }).present();
   }
   
   SignIn() {
-  	//console.log(this.email.value, this.password.value)
     this.fire.auth.signInWithEmailAndPassword(this.email.value, this.password.value)
     .then(data => {
       console.log('got data ', data);
@@ -45,7 +45,7 @@ export class SigninPage {
       this.navCtrl.setRoot(LoggedinPage);
     })
     .catch(error => {
-      console.log('got an error ', error);
+      console.log('got error ', error);
       this.alert(error.message);
     });
   }

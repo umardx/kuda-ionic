@@ -23,4 +23,8 @@ export class ItemProvider {
 		this.accounts = this.afs.collection('accounts').valueChanges() as Observable<Account[]>;
 		this.courses = this.afs.collection('courses').valueChanges() as Observable<Course[]>;
 	}
+
+  getAccounts() {
+    return this.accounts;
+  }
 }
