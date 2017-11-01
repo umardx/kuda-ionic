@@ -1,10 +1,12 @@
 export interface Account {
+	id?: string;
 	email: string;
 	nim: number;
 	course: Course[];
 }
 
 export interface Course {
+	id?: string;
 	code: string;
 	jadwal: number;
 	laporan: LaporanIf[];
