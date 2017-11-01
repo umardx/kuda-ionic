@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Accounts, Courses } from '../../app/models/models';
+import { Account, Course } from '../../app/models/models';
 import { Observable } from 'rxjs/Observable';
 
 /*
@@ -13,10 +13,14 @@ import { Observable } from 'rxjs/Observable';
 */
 @Injectable()
 export class ItemProvider {
-	accountCollection: AngularFirestoreCollection<Accounts>;
-	courseCollection: AngularFirestoreCollection<Courses>;
+	accountsCollection: AngularFirestoreCollection<Account>;
+	accounts: Observable<Account[]>;
+
+	coursesCollection: AngularFirestoreCollection<Course>;
+	courses: Observable<Course[]>;
 
 	constructor(public afs: AngularFirestore) {
-
+		this.accounts = this.afs.collection('accounts').valueChanges() as Observable<Account[]>;
+		this.courses = this.afs.collection('courses').valueChanges() as Observable<Course[]>;
 	}
 }

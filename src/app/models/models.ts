@@ -1,10 +1,10 @@
-export interface Accounts {
+export interface Account {
 	email: string;
 	nim: number;
-	course: Courses[];
+	course: Course[];
 }
 
-export interface Courses {
+export interface Course {
 	code: string;
 	jadwal: number;
 	laporan: LaporanIf[];
