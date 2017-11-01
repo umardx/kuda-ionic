@@ -14,5 +14,11 @@
 
 
 <ion-content padding>
-
+	<div>
+		<p>Your email is : {{ email }} </p>
+		<button ion-button (click)="SignOut()">Logout</button>
+	</div>
+	<div *ngFor="let account of accounts | async">
+		<p>{{ account | json }}</p>
+	</div>
 </ion-content>
