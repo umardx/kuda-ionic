@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Account, Course } from '../../app/models/models';
+import { AccountProvider } from '../../providers/account/account';
 
 /**
  * Generated class for the LoggedinPage page.
@@ -17,6 +19,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class LoggedinPage {
 
 	email: string;
+  course: string[];
 
   constructor(
     private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {

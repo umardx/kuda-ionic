@@ -16,7 +16,8 @@ import { LoggedinPage } from '../pages/loggedin/loggedin';
 import { FeedPage } from '../pages/feed/feed';
 import { ModulPage } from '../pages/modul/modul';
 import { AccountPage } from '../pages/account/account';
-import { ItemProvider } from '../providers/item/item';
+import { AccountProvider } from '../providers/account/account';
+import { CourseProvider } from '../providers/course/course';
 
 // Ref: https://www.youtube.com/watch?v=qKajGwYe4TI&index=11&list=PLYxzS__5yYQng-XnJhB21Jc7NW1OIaqct
 const firebaseAuth = {
@@ -62,7 +63,8 @@ const firebaseAuth = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ItemProvider
+    AccountProvider,
+    CourseProvider
   ]
 })
 export class AppModule {}
