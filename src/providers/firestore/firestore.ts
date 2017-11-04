@@ -27,7 +27,6 @@ export class FirestoreProvider {
 
 	this.coursesCollection = this.afs.collection('courses');
 	this.courses = this.coursesCollection.valueChanges();
-	console.log('Hello AccountProvider Provider');
   }
 
   getData() {
