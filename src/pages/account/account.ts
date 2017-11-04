@@ -10,6 +10,7 @@ import { Account, Course } from '../../models/firestore/firestore';
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
+ * and https://www.youtube.com/watch?v=0Nah3foeyCM
  */
 
 @IonicPage()
