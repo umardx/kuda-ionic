@@ -13,6 +13,28 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<!--<ion-content padding>-->
+<ion-content>
+	<ion-list>
+	  <ion-item>
+	    <ion-label>Pilih Mata Kuliah</ion-label>
+	    <ion-select [(ngModel)]="matkul">
+	      <ion-option value="jarkom">ET3200</ion-option>
+	      <ion-option value="pswk">ET2000</ion-option>
+	      <ion-option value="rl">ET3100</ion-option>
+	      <ion-option value="sisdig">ET4000</ion-option>
+	      <ion-option value="rl2">ET3100</ion-option>
+	      <ion-option value="sisdig2">ET4000</ion-option>
+	    </ion-select>
+	  </ion-item>
+	
+	  <ion-item>
+	    <ion-label>Pilih Modul Matkul</ion-label>
+	    <ion-select [(ngModel)]="modul">
+	      <ion-option value="mod1">Modul 1: "RL"</ion-option>
+	      <ion-option value="mod2">Modul 2: "PSWK"</ion-option>
+	      <ion-option value="mod3">Modul 3: "Jarkom"</ion-option>
+	    </ion-select>
+	  </ion-item>
+	</ion-list>
 </ion-content>
