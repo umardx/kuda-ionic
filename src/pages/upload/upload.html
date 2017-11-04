@@ -17,7 +17,7 @@
 <ion-content>
 	<ion-list>
 	  <ion-item>
-	    <ion-label>Pilih Mata Kuliah</ion-label>
+	    <ion-label>Course Name</ion-label>
 	    <ion-select [(ngModel)]="courses">
 	      <ion-option value="ET3100">ET3100</ion-option>
 	      <ion-option value="ET2100">ET2100</ion-option>
@@ -25,12 +25,16 @@
 	  </ion-item>
 	
 	  <ion-item>
-	    <ion-label>Pilih Modul Matkul</ion-label>
+	    <ion-label>Modul Name</ion-label>
 	    <ion-select [(ngModel)]="moduls">
 	      <ion-option value="Modul1">Modul 1: "Judul Modul 1"</ion-option>
 	      <ion-option value="Modul2">Modul 2: "Judul Modul 2"</ion-option>
 	      <ion-option value="Modul3">Modul 3: "Judul Modul 3"</ion-option>
 	    </ion-select>
+	  </ion-item>
+	  <ion-item>
+	  	<input type="file" #fileInput padding>
+	  	<button ion-button block (click)="uploadLaporan()">Upload</button>
 	  </ion-item>
 	</ion-list>
 </ion-content>

@@ -8,6 +8,7 @@
 
   <ion-navbar>
     <ion-title>Account</ion-title>
+    <button ion-button icon-only (click)="SignUp()"><ion-icon name=power""></button>
   </ion-navbar>
 
 </ion-header>
@@ -16,6 +17,5 @@
 <ion-content padding>
 	<div>
 		<p>Your email is : {{ email }} </p>
-		<button ion-button (click)="SignOut()">Logout</button>
 	</div>
 </ion-content>
