@@ -17,19 +17,8 @@ import { FeedPage } from '../pages/feed/feed';
 import { ModulPage } from '../pages/modul/modul';
 import { UploadPage } from '../pages/upload/upload';
 import { AccountPage } from '../pages/account/account';
-import { AccountProvider } from '../providers/account/account';
-import { CourseProvider } from '../providers/course/course';
 import { FirestoreProvider } from '../providers/firestore/firestore';
-
-// Ref: https://www.youtube.com/watch?v=qKajGwYe4TI&index=11&list=PLYxzS__5yYQng-XnJhB21Jc7NW1OIaqct
-const firebaseAuth = {
-  apiKey: "AIzaSyBjCiiVurxPITeLpl3mElnxm426YuPhtWw",
-  authDomain: "kuda-24.firebaseapp.com",
-  databaseURL: "https://kuda-24.firebaseio.com",
-  projectId: "kuda-24",
-  storageBucket: "kuda-24.appspot.com",
-  messagingSenderId: "253973356505"
-};
+import { firestore_env } from '../environments/firestore_env';
 
 
 @NgModule({
@@ -47,7 +36,7 @@ const firebaseAuth = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseAuth), // imports firebase/app needed for everything
+    AngularFireModule.initializeApp(firestore_env.firebase), // imports firebase/app needed for everything
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     AngularFirestoreModule // imports firebase/firestore, only needed for database features
   ],
@@ -67,8 +56,6 @@ const firebaseAuth = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AccountProvider,
-    CourseProvider,
     FirestoreProvider
   ]
 })

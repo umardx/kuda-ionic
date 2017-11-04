@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Account, Course } from '../../app/models/models';
-import { AccountProvider } from '../../providers/account/account';
+import { FirestoreProvider } from '../../providers/firestore/firestore';
 
 /**
  * Generated class for the FeedPage page.
