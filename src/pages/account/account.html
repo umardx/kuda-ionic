@@ -16,8 +16,18 @@
 </ion-header>
 
 
-<ion-content padding>
-	<div>
+<ion-content>
+	<div padding>
 		<p>Your email is : {{ email }} </p>
 	</div>
+  <div padding>
+    <h1>Email List:</h1>
+    <ul *ngFor="let account of accounts | async">
+      <li>{{ account.email }}</li>
+    </ul>
+    <h1>Course List:</h1>
+    <ul *ngFor="let course of courses | async">
+      <li>{{ course.code }}</li>
+    </ul>
+  </div>
 </ion-content>
