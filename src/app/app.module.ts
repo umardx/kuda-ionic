@@ -19,6 +19,7 @@ import { UploadPage } from '../pages/upload/upload';
 import { AccountPage } from '../pages/account/account';
 import { AccountProvider } from '../providers/account/account';
 import { CourseProvider } from '../providers/course/course';
+import { FirestoreProvider } from '../providers/firestore/firestore';
 
 // Ref: https://www.youtube.com/watch?v=qKajGwYe4TI&index=11&list=PLYxzS__5yYQng-XnJhB21Jc7NW1OIaqct
 const firebaseAuth = {
@@ -67,7 +68,8 @@ const firebaseAuth = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AccountProvider,
-    CourseProvider
+    CourseProvider,
+    FirestoreProvider
   ]
 })
 export class AppModule {}
