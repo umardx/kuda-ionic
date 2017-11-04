@@ -21,4 +21,65 @@
 	<div *ngFor="let account of accounts | async">
 		<p>{{ account | json }}</p>
 	</div>
+
+  <!-- Segment in content -->
+  <ion-segment [(ngModel)]="feed">
+    <ion-segment-button value="praktikum">
+      Praktikum
+    </ion-segment-button>
+    <ion-segment-button value="modul">
+      Modul
+    </ion-segment-button>
+    <ion-segment-button value="tp">
+      TP
+    </ion-segment-button>
+  </ion-segment>
+
+<div [ngSwitch]="feed">
+  <ion-list *ngSwitchCase="'praktikum'">
+    <ion-item>
+      <h2>Qwafaegagshs</h2>
+    </ion-item>
+
+    <ion-item>
+      <h2>Qwafaegagshs</h2>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'modul'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">
+      </ion-thumbnail>
+      <h2> ET3100 - Modul 1: "RL" </h2>
+      <a href="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">download</a>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">
+      </ion-thumbnail>
+      <h2> ET2100- Modul 1: "RL" </h2>
+      <a href="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">download</a>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'tp'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">
+      </ion-thumbnail>
+      <h2> ET3100 - TP 1: "RL" </h2>
+      <a href="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">download</a>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">
+      </ion-thumbnail>
+      <h2> ET2100- TP 1: "RL" </h2>
+      <a href="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">download</a>
+    </ion-item>
+  </ion-list>
+</div>
 </ion-content>
