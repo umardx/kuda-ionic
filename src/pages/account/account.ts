@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { AngularFireAuth } from 'angularfire2/auth';
 /**
  * Generated class for the AccountPage page.
  *
@@ -14,9 +14,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'account.html',
 })
 export class AccountPage {
+	
+	email: string;
+	course: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+    this.email = fire.auth.currentUser.email;
   }
+
+  SignOut() {
+		this.fire.auth.signOut();
+	}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AccountPage');

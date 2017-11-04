@@ -25,10 +25,6 @@ export class FeedPage {
 		this.email = fire.auth.currentUser.email;
 	}
 
-	SignOut() {
-		this.fire.auth.signOut();
-  }
-
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad FeedPage');
 	}

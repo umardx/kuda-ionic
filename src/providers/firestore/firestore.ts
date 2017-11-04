@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { Account, Course } from '../../app/models/models';
+import { Account, Course } from '../../models/firestore/firestore';
 
 /*
   Generated class for the FirestoreProvider provider.
