@@ -1,3 +1,39 @@
 page-modul {
 
+	.button-download {
+      background: #3BB9FF;
+      padding-top: 5px;
+      padding-bottom:5px;
+      padding-left:100px;
+      padding-right:100px;
+      margin-top: 50px;
+    }
+
+.daftar {
+  float: none;
+  background-color: #00BFFF;
+  transition: all 0.3s linear;
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 9px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.daftar a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.daftar:hover {
+  background-color: #808080;
+  cursor: pointer;
+}
+
 }
