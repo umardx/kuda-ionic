@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { FeedPage } from '../../pages/feed/feed';
 import { ModulPage } from '../../pages/modul/modul';
