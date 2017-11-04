@@ -28,12 +28,11 @@ export class AccountPage {
   coursesCollection: AngularFirestoreCollection<Course>;
   courses: Observable<Course[]>;
 
-  constructor(
-    private fire: AngularFireAuth, public afs: AngularFirestore, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private fire: AngularFireAuth, public afs: AngularFirestore, public navCtrl: NavController, public navParams: NavParams) {
     
     this.email = fire.auth.currentUser.email;
 
-    this.accountsCollection = this.afs.collection('accounts'); // reference
+    this.accountsCollection = this.afs.collection('accounts', ref => ref.where('email', '==', this.email)); // reference
     this.accounts = this.accountsCollection.valueChanges(); // Observable of data account
 
     this.coursesCollection = this.afs.collection('courses'); // reference
