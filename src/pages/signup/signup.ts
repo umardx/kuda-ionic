@@ -1,6 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { Account, Course, Person } from '../../models/firestore/firestore';
 
 /**
  * Generated class for the SignupPage page.
@@ -21,7 +25,7 @@ export class SignupPage {
 	@ViewChild('password') password;
   @ViewChild('retype_password') retype_password;
 
-  constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+  constructor(private fire: AngularFireAuth, private afs: AngularFirestore, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -37,7 +41,6 @@ export class SignupPage {
   }
 
   SignUp() {
-  	//console.log(this.email.value, this.password.value);
     if(this.password.value !== this.retype_password.value) {
       let alert = this.alertCtrl.create({
         title: 'Error',

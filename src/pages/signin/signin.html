@@ -14,23 +14,20 @@
 
 
 <ion-content padding>
+
 <ion-list>
-
-  <ion-item>
-    <ion-label floating>Email</ion-label>
+  <form (ngSubmit)="SignIn()">
+    <ion-item>
+      <ion-label floating>Email</ion-label>
     <ion-input type="text" #email></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" #password></ion-input>
   </ion-item>
-
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password" #password></ion-input>
-  </ion-item>
-
+    <button ion-button type="submit" block>Sign Up</button>
+  </form>
 </ion-list>
-
-<div padding>
-	<button ion-button block (click)="SignIn()">Sign In</button>
-</div>
 
 </ion-content>
 

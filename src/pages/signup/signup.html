@@ -12,8 +12,31 @@
 
 </ion-header>
 
-
 <ion-content padding>
+
+<ion-list>
+  <form (ngSubmit)="SignUp()">
+    <ion-item>
+      <ion-label floating>NIM</ion-label>
+      <ion-input type="number" #nim></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+    <ion-input type="text" #email></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" #password></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Retype Password</ion-label>
+    <ion-input type="password" #retype_password></ion-input>
+  </ion-item>
+    <button ion-button type="submit" block>Sign Up</button>
+  </form>
+</ion-list>
+
+<!--
 <ion-list>
 
   <ion-item>
@@ -41,5 +64,6 @@
 <div padding>
 	<button ion-button block (click)="SignUp()">Sign Up</button>
 </div>
+-->
 
 </ion-content>
