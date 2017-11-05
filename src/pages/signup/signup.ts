@@ -45,36 +45,45 @@ export class SignupPage {
   }
 
   SignUp() {
-   
+  
     if(this.nim.value < 18100000 || this.nim.value > 18199999) {
+
       let alert = this.alertCtrl.create({
           title: 'Error',
-          message: 'You\'re not invited. Please correct your nim!',
+          message: 'Correct your NIM!',
           buttons: ['OK']
       });
       alert.present();
       return;
-    }
+    } else {
 
-    if(this.password.value !== this.retype_password.value) {
+      if(this.password.value !== this.retype_password.value) {
       let alert = this.alertCtrl.create({
         title: 'Error',
-        message: 'Your password and your re-entered password does not match each other.',
+        message: 'Your password and your re-entered password doesn\'t.',
         buttons: ['OK']
       });
       alert.present();
       return;
+      } else {
+
+        this.fire.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
+        .then(data => {
+          this.afs.collection('accounts').add({
+            'nim': this.nim.value,
+            'email': this.email.value,
+            'courses': null
+          });
+          console.log('got data ', data);
+          this.alert('Registered!');
+        })
+        .catch(error => {
+          console.log('got an error ', error);
+          this.alert(error.message);
+        });
+      }
+
     }
-    
-    this.fire.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
-    .then(data => {
-      console.log('got data ', data);
-      this.alert('Registered!');
-    })
-    .catch(error => {
-      console.log('got an error ', error);
-      this.alert(error.message);
-    });
 
   }
 
