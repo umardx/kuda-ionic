@@ -31,3 +31,9 @@ export interface TpIf {
 	file: string;
 	judul: string;
 }
+
+export interface Person {
+	nim: number;
+	email: string;
+	password: string;
+}
