@@ -18,19 +18,19 @@
   <form (ngSubmit)="SignUp()">
     <ion-item>
       <ion-label floating>NIM</ion-label>
-      <ion-input type="number" #nim></ion-input>
+      <ion-input type="number" #nim required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Email</ion-label>
-    <ion-input type="text" #email></ion-input>
+    <ion-input type="text" #email required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password" #password></ion-input>
+      <ion-input type="password" #password required></ion-input>
   </ion-item>
   <ion-item>
     <ion-label floating>Retype Password</ion-label>
-    <ion-input type="password" #retype_password></ion-input>
+    <ion-input type="password" #retype_password required></ion-input>
   </ion-item>
     <button ion-button type="submit" block>Sign Up</button>
   </form>

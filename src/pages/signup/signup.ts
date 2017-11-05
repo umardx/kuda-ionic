@@ -4,7 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { Account, Course, Person } from '../../models/firestore/firestore';
+import { Account } from '../../models/firestore/firestore';
 
 /**
  * Generated class for the SignupPage page.
@@ -25,7 +25,11 @@ export class SignupPage {
 	@ViewChild('password') password;
   @ViewChild('retype_password') retype_password;
 
+  accountsCollection: AngularFirestoreCollection<Account>;
+  accounts: Observable<Account[]>;
+
   constructor(private fire: AngularFireAuth, private afs: AngularFirestore, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+
   }
 
   ionViewDidLoad() {
@@ -41,6 +45,17 @@ export class SignupPage {
   }
 
   SignUp() {
+   
+    if(this.nim.value < 18100000 || this.nim.value > 18199999) {
+      let alert = this.alertCtrl.create({
+          title: 'Error',
+          message: 'You\'re not invited. Please correct your nim!',
+          buttons: ['OK']
+      });
+      alert.present();
+      return;
+    }
+
     if(this.password.value !== this.retype_password.value) {
       let alert = this.alertCtrl.create({
         title: 'Error',
