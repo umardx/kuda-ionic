@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Account, Course } from '../../models/firestore/firestore';
@@ -29,7 +29,7 @@ export class AccountPage {
   coursesCollection: AngularFirestoreCollection<Course>;
   courses: Observable<Course[]>;
 
-  constructor(private fire: AngularFireAuth, public afs: AngularFirestore, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private fire: AngularFireAuth, private afs: AngularFirestore, public navCtrl: NavController, public navParams: NavParams) {
     
     this.email = fire.auth.currentUser.email;
 

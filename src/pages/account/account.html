@@ -18,11 +18,8 @@
 
 <ion-content>
 	<div padding *ngFor="let account of accounts | async">
-    <h2>Email:</h2>>
-		<strong>{{ account.email }} </strong>
-    <h2>NIM:</h2>>
-    <strong>{{ account.nim }} </strong>
-    <h2>Courses:</h2>>
-    <strong>{{ account.course }} </strong>
+    <h2>Email: </h2><strong>{{ account.email }} </strong>
+    <h2>NIM: </h2><strong>{{ account.nim }} </strong>
+    <h2>Courses: </h2><strong>{{ account.course }} </strong>
 	</div>
 </ion-content>
