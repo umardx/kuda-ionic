@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoadingController } from 'ionic-angular';
 
-/**
- * Generated class for the SigninPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-signin',
@@ -29,7 +22,9 @@ export class SigninPage {
   }
 
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad SigninPage');
+    
   }
 
   alert(message: string) {
@@ -52,11 +47,17 @@ export class SigninPage {
 
   }
 
-  SignIn() {
+  signIn() {
 
     this.presentLoading();
-    this.fire.auth.signInWithEmailAndPassword(this.email.value, this.password.value)
+    this.fire.auth.signInWithEmailAndPassword(
+      
+      this.email.value,
+      this.password.value
+
+      )
     .then(data => {
+
       console.log('got data ', data);
       this.alert('Success! You \'re logged in!');
 

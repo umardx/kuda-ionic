@@ -1,39 +1,37 @@
 export interface Account {
-	id?: string;
+
+	course: string[];
 	email: string;
 	nim: number;
-	course: Course[];
+
 }
 
-export interface Course {
-	id?: string;
+export interface Moduls {
+
 	code: string;
-	jadwal: number;
-	laporan: LaporanIf[];
-	modul: ModulIf[];
-	tp: TpIf[];
-}
-
-export interface LaporanIf {
-	deadline: number;
+	endTime: any;
 	file: string;
-	judul: string;
-	nilai: number;
+	index: number;
+	startTime: any;
+	title: string;
+
 }
 
-export interface ModulIf {
+export interface Tps {
+
+	code: string;
+	endTime: any;
 	file: string;
-	judul: string;
+	index: number;
+	title: string;
+
 }
 
-export interface TpIf {
-	deadline: number;
-	file: string;
-	judul: string;
-}
+export interface Marks {
 
-export interface Person {
+	code: string;
+	index: number;
+	mark: number;
 	nim: number;
-	email: string;
-	password: string;
+	
 }
