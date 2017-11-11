@@ -17,6 +17,9 @@ import { FeedPage } from '../pages/feed/feed';
 import { ModulPage } from '../pages/modul/modul';
 import { UploadPage } from '../pages/upload/upload';
 import { AccountPage } from '../pages/account/account';
+
+import { BelumPage } from '../pages/belum/belum';
+
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { firestore_env } from '../environments/firestore_env';
 
@@ -31,13 +34,14 @@ import { firestore_env } from '../environments/firestore_env';
     FeedPage,
     ModulPage,
     UploadPage,
-    AccountPage
+    AccountPage,
+    BelumPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firestore_env.firebase), // imports firebase/app needed for everything
-     AngularFirestoreModule.enablePersistence(), // imports firebase/firestore, only needed for database features
+    AngularFirestoreModule.enablePersistence(), // imports firebase/firestore, only needed for database features
     AngularFireAuthModule // imports firebase/auth, only needed for auth features
   ],
   bootstrap: [IonicApp],
@@ -50,7 +54,8 @@ import { firestore_env } from '../environments/firestore_env';
     FeedPage,
     ModulPage,
     UploadPage,
-    AccountPage
+    AccountPage,
+    BelumPage
   ],
   providers: [
     StatusBar,
