@@ -28,7 +28,7 @@ export class AccountPage {
 
   }
 
-  SignOut() {
+  signOut() {
 		this.fire.auth.signOut();
 	}
 
