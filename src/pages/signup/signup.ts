@@ -44,7 +44,18 @@ export class SignupPage {
     }).present();
   }
 
+  presentLoading() {
+
+    let loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 3000
+    });
+    loader.present();
+
+  }
   SignUp() {
+
+    this.presentLoading();
   
     if(this.nim.value < 18100000 || this.nim.value > 18199999) {
 
