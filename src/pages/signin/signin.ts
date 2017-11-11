@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Loading, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -42,6 +41,7 @@ export class SigninPage {
   presentLoading() {
 
     this.loading = this.loadingCtrl.create({
+      spinner: 'ios',
       content: "Please wait...",
       dismissOnPageChange: true
     });

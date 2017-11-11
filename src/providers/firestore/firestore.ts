@@ -22,6 +22,7 @@ export class FirestoreProvider {
 
   	this.accountsCollection = this.afs.collection('accounts', ref => ref.where('email', '==', email)); // reference
     this.accounts = this.accountsCollection.valueChanges(); // Observable of data
+    return this.accounts;
   
   }
 

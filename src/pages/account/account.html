@@ -19,9 +19,25 @@
 
 
 <ion-content>
-	<div padding *ngFor="let account of fp.accounts | async">
-    <h2>Email: </h2><strong>{{ account.email }} </strong>
-    <h2>NIM: </h2><strong>{{ account.nim }} </strong>
-    <h2>Courses: </h2><strong>{{ account.course }} </strong>
-	</div>
+  <ion-list no-border *ngFor="let account of accounts">
+
+    <ion-item>
+      <ion-icon name="ios-mail" item-start></ion-icon>
+      Email
+      <ion-badge item-end>{{ account.email }}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="ios-barcode" item-start></ion-icon>
+      NIM
+      <ion-badge item-end>{{ account.nim }}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="ios-book" item-start></ion-icon>
+      Course
+      <ion-badge item-end *ngFor="let course of account.course">{{ course }}</ion-badge>
+    </ion-item>
+
+  </ion-list>
 </ion-content>

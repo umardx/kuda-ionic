@@ -41,7 +41,7 @@ import { firestore_env } from '../environments/firestore_env';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firestore_env.firebase), // imports firebase/app needed for everything
-    AngularFirestoreModule.enablePersistence(), // imports firebase/firestore, only needed for database features
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule // imports firebase/auth, only needed for auth features
   ],
   bootstrap: [IonicApp],

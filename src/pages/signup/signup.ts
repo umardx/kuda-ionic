@@ -1,11 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Loading, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Account } from '../../models/firestore/firestore';
-import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the SignupPage page.
@@ -56,6 +55,7 @@ export class SignupPage {
   presentLoading() {
 
     this.loading = this.loadingCtrl.create({
+      spinner: 'ios',
       content: "Please wait...",
       dismissOnPageChange: true
     });
