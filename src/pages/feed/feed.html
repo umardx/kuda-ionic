@@ -6,76 +6,138 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Feed</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-	<div *ngFor="let account of accounts | async">
-		<p>{{ account | json }}</p>
-	</div>
+<ion-content class="list-avatar-page">
+  <ion-list>
 
-  <!-- Segment in content -->
-  <ion-segment [(ngModel)]="feed"n gSelected="selected">
-    <ion-segment-button value="praktikum">
-      Praktikum
-    </ion-segment-button>
-    <ion-segment-button value="modul">
-      Modul
-    </ion-segment-button>
-    <ion-segment-button value="tp">
-      TP
-    </ion-segment-button>
-  </ion-segment>
+    <ion-list-header>Pengumuman</ion-list-header>
 
-<div [ngSwitch]="feed">
-  <ion-list *ngSwitchCase="'praktikum'">
     <ion-item>
-      <h2>Qwafaegagshs</h2>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183336.svg">
+      </ion-avatar>
+      <h2>Woody</h2>
+      <p>This town ain't big enough for the two of us!</p>
+      <ion-note item-end>3:43 pm</ion-note>
     </ion-item>
 
     <ion-item>
-      <h2>Qwafaegagshs</h2>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183336.svg">
+      </ion-avatar>
+      <h2>Buzz Lightyear</h2>
+      <p>My eyeballs could have been sucked from their sockets!</p>
+      <ion-note item-end>1:12 pm</ion-note>
     </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183336.svg">
+      </ion-avatar>
+      <h2>Jessie</h2>
+      <p>Well aren't you just the sweetest space toy I ever did meet!</p>
+      <ion-note item-end>10:03 am</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183336.svg">
+      </ion-avatar>
+      <h2>Mr. Potato Head</h2>
+      <p>You're not turning me into a Mashed Potato.</p>
+      <ion-note item-end>5:47 am</ion-note>
+    </ion-item>
+
   </ion-list>
 
-  <ion-list *ngSwitchCase="'modul'">
+  <ion-list>
+
+   <ion-list-header>Tugas Pendahuluan</ion-list-header>
+
     <ion-item>
-      <ion-thumbnail item-start>
-        <img src="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">
-      </ion-thumbnail>
-      <h2> ET3100 - Modul 1: "RL" </h2>
-      <a href="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">download</a>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
+      </ion-avatar>
+      <h2>Judul Modul 1</h2>
+      <p>12 Agustus 2017</p>
+      <ion-note item-end>ET3100</ion-note>
     </ion-item>
 
     <ion-item>
-      <ion-thumbnail item-start>
-        <img src="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">
-      </ion-thumbnail>
-      <h2> ET2100- Modul 1: "RL" </h2>
-      <a href="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">download</a>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
+      </ion-avatar>
+      <h2>Judul Modul 1</h2>
+      <p>12 Agustus 2017</p>
+      <ion-note item-end>ET3100</ion-note>
     </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
+      </ion-avatar>
+      <h2>Judul Modul 1</h2>
+      <p>12 Agustus 2017</p>
+      <ion-note item-end>ET3100</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
+      </ion-avatar>
+      <h2>Judul Modul 1</h2>
+      <p>12 Agustus 2017</p>
+      <ion-note item-end>ET3100</ion-note>
+    </ion-item>
+
   </ion-list>
 
-  <ion-list *ngSwitchCase="'tp'">
+  <ion-list>
+
+    <ion-list-header>Modul Praktikum</ion-list-header>
+
     <ion-item>
-      <ion-thumbnail item-start>
-        <img src="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">
-      </ion-thumbnail>
-      <h2> ET3100 - TP 1: "RL" </h2>
-      <a href="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">download</a>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183334.svg">
+      </ion-avatar>
+      <h2>Judul Modul 1</h2>
+      <p>12 Agustus 2017</p>
+      <ion-note item-end>ET3100</ion-note>
     </ion-item>
 
     <ion-item>
-      <ion-thumbnail item-start>
-        <img src="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">
-      </ion-thumbnail>
-      <h2> ET2100- TP 1: "RL" </h2>
-      <a href="https://lh3.googleusercontent.com/8VF8Oom0BIT89x24dFfhjexnQ2EQy_vNx5Qxob9rWxzPDyuc55IzB5POJ1Vcm2Xve4o2=w300">download</a>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183334.svg">
+      </ion-avatar>
+      <h2>Judul Modul 1</h2>
+      <p>12 Agustus 2017</p>
+      <ion-note item-end>ET3100</ion-note>
     </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183334.svg">
+      </ion-avatar>
+      <h2>Judul Modul 1</h2>
+      <p>12 Agustus 2017</p>
+      <ion-note item-end>ET3100</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://image.flaticon.com/icons/svg/183/183334.svg">
+      </ion-avatar>
+      <h2>Judul Modul 1</h2>
+      <p>12 Agustus 2017</p>
+      <ion-note item-end>ET3100</ion-note>
+    </ion-item>
+
   </ion-list>
-</div>
+
 </ion-content>
