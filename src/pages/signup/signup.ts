@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Loading } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable} from 'rxjs/Observable';
@@ -25,6 +25,8 @@ export class SignupPage {
 	@ViewChild('email') email;
 	@ViewChild('password') password;
   @ViewChild('retype_password') retype_password;
+
+  loading: Loading;
 
   accountsCollection: AngularFirestoreCollection<Account>;
   accounts: Observable<Account[]>;
@@ -53,11 +55,11 @@ export class SignupPage {
 
   presentLoading() {
 
-    let loader = this.loadingCtrl.create({
+    this.loading = this.loadingCtrl.create({
       content: "Please wait...",
-      duration: 3000
+      dismissOnPageChange: true
     });
-    loader.present();
+    this.loading.present();
 
   }
 
@@ -111,6 +113,7 @@ export class SignupPage {
         .catch(error => {
 
           console.log('got an error ', error);
+          this.loading.dismiss();
           this.alert(error.message);
 
         });

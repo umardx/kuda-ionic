@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Loading } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoadingController } from 'ionic-angular';
 
@@ -12,6 +12,8 @@ export class SigninPage {
 
 	@ViewChild('email') email;
 	@ViewChild('password') password;
+
+  loading: Loading;
 
   constructor(
     public fire: AngularFireAuth, 
@@ -39,11 +41,11 @@ export class SigninPage {
 
   presentLoading() {
 
-    let loader = this.loadingCtrl.create({
+    this.loading = this.loadingCtrl.create({
       content: "Please wait...",
-      duration: 3000
+      dismissOnPageChange: true
     });
-    loader.present();
+    this.loading.present();
 
   }
 
@@ -65,6 +67,7 @@ export class SigninPage {
     .catch(error => {
 
       console.log('got error ', error);
+      this.loading.dismiss();
       this.alert(error.message);
 
     });
