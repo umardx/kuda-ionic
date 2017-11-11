@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Account } from '../../models/firestore/firestore';
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the SignupPage page.
@@ -28,7 +29,13 @@ export class SignupPage {
   accountsCollection: AngularFirestoreCollection<Account>;
   accounts: Observable<Account[]>;
 
-  constructor(private fire: AngularFireAuth, private afs: AngularFirestore, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+  constructor(
+    public fire: AngularFireAuth,
+    public afs: AngularFirestore,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController) {
 
   }
 
@@ -54,8 +61,6 @@ export class SignupPage {
 
   }
   SignUp() {
-
-    this.presentLoading();
   
     if(this.nim.value < 18100000 || this.nim.value > 18199999) {
 
@@ -78,6 +83,7 @@ export class SignupPage {
       return;
       } else {
 
+        this.presentLoading();
         this.fire.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
         .then(data => {
           this.afs.collection('accounts').add({
