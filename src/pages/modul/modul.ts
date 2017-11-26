@@ -18,8 +18,18 @@ export class ModulPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ModulPage');
-  }
+	doRefresh(refresher) {
+
+		console.log('Begin async operation', refresher);
+
+		setTimeout(() => {
+		  console.log('Async operation has ended');
+		  refresher.complete();
+		}, 1000);
+	}
+	
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad ModulPage');
+	}
 
 }
