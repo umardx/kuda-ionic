@@ -33,7 +33,8 @@ export class SigninPage {
 
     let toast = this.toastCtrl.create({
       message: message,
-      duration: 3000,
+      duration: 2500,
+      showCloseButton: true,
       position: 'top'
     });
 
