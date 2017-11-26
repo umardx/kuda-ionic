@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
-import { Account } from '../../models/firestore/firestore';
+import { Account, Tps } from '../../models/firestore/firestore';
 
 @IonicPage()
 @Component({
@@ -14,6 +14,12 @@ import { Account } from '../../models/firestore/firestore';
 export class AccountPage {
 	
   accounts: Account[];
+  tps: Tps[];
+
+  jancoks: Account[];
+
+
+  course: string[];
 	email: string;
 
   loading: Loading;
@@ -30,11 +36,11 @@ export class AccountPage {
     
     this.presentLoading();
     this.email = fire.auth.currentUser.email;
-    this.fp.getAccounts(this.email).subscribe(accounts=>{
 
-      this.accounts = accounts;
-      console.log('Accounts:', this.accounts);
+    this.fp.getAccounts(this.email).subscribe(result=>{
 
+      this.accounts = result;
+      
     });
 
   }
