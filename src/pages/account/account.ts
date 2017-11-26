@@ -16,6 +16,8 @@ export class AccountPage {
   accounts: Account[];
 	email: string;
 
+  anu: Account;
+
   loading: Loading;
 
   constructor(
@@ -34,7 +36,6 @@ export class AccountPage {
 
       this.accounts = accounts;
       console.log('Accounts:', this.accounts);
-
     });
 
   }
