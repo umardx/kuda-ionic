@@ -16,8 +16,6 @@ export class AccountPage {
   accounts: Account[];
 	email: string;
 
-  anu: Account;
-
   loading: Loading;
 
   constructor(
