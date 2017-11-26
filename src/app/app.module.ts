@@ -14,7 +14,7 @@ import { HomePage } from '../pages/home/home';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { FeedPage } from '../pages/feed/feed';
-import { ModulPage } from '../pages/modul/modul';
+import { LaporanPage } from '../pages/laporan/laporan';
 import { UploadPage } from '../pages/upload/upload';
 import { AccountPage } from '../pages/account/account';
 
@@ -33,7 +33,7 @@ import { firestore_env } from '../environments/firestore_env';
     SigninPage,
     SignupPage,
     FeedPage,
-    ModulPage,
+    LaporanPage,
     UploadPage,
     AccountPage,
     BelumPage
@@ -53,7 +53,7 @@ import { firestore_env } from '../environments/firestore_env';
     SigninPage,
     SignupPage,
     FeedPage,
-    ModulPage,
+    LaporanPage,
     UploadPage,
     AccountPage,
     BelumPage

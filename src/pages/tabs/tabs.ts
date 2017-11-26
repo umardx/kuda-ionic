@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { FeedPage } from '../../pages/feed/feed';
-import { ModulPage } from '../../pages/modul/modul';
+import { LaporanPage } from '../../pages/laporan/laporan';
 import { UploadPage } from '../../pages/upload/upload';
 import { AccountPage } from '../../pages/account/account';
 
@@ -12,9 +12,8 @@ import { AccountPage } from '../../pages/account/account';
 export class TabsPage {
 
   tab1Root = FeedPage;
-  tab2Root = ModulPage;
-  tab3Root = UploadPage;
-  tab4Root = AccountPage;
+  tab2Root = LaporanPage;
+  tab3Root = AccountPage;
 
   constructor() {
 

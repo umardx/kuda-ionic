@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { UploadPage } from '../../pages/upload/upload';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the ModulPage page.
+ * Generated class for the LaporanPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,10 +11,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-modul',
-  templateUrl: 'modul.html',
+  selector: 'page-laporan',
+  templateUrl: 'laporan.html',
 })
-export class ModulPage {
+export class LaporanPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -27,9 +28,15 @@ export class ModulPage {
 		  refresher.complete();
 		}, 1000);
 	}
+
+	openUploadnPage() {
+
+		this.navCtrl.push(UploadPage);
+
+	}
 	
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad ModulPage');
+	console.log('ionViewDidLoad LaporanPage');
 	}
 
 }

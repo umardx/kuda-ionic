@@ -1,7 +1,12 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Feed</ion-title>
+    <ion-title>Laporan</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)=openUploadnPage()>
+          <ion-icon name="md-cloud-upload"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -16,50 +21,6 @@
   <ion-searchbar (ionInput)="getItems($event)" color="primary"></ion-searchbar>
 
   <ion-list>
-
-   <ion-list-header>Tugas Pendahuluan</ion-list-header>
-
-    <ion-item text-wrap>
-      <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
-      </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
-      <p>12 Agustus 2017 - 23:59</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-
-    <ion-item text-wrap>
-      <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
-      </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
-      <p>12 Agustus 2017 - 23:59</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-
-    <ion-item text-wrap>
-      <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
-      </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
-      <p>12 Agustus 2017 - 23:59</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-
-    <ion-item text-wrap>
-      <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
-      </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
-      <p>12 Agustus 2017 - 23:59</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-
-  </ion-list>
-
-  <ion-list>
-
-    <ion-list-header>Modul Praktikum</ion-list-header>
 
     <ion-item text-wrap>
       <ion-avatar item-start>
