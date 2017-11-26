@@ -15,6 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FeedPage {
 
+	searchQuery: string = '';
+	items: string[];
+
 	constructor(public navCtrl: NavController, public navParams: NavParams) {
 	}
 
@@ -26,6 +29,10 @@ export class FeedPage {
 		  console.log('Async operation has ended');
 		  refresher.complete();
 		}, 1000);
+		
+	}
+
+	getItems(ev: any) {
 		
 	}
 

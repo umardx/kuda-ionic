@@ -21,6 +21,7 @@ import { AccountPage } from '../pages/account/account';
 import { BelumPage } from '../pages/belum/belum';
 
 import { FirestoreProvider } from '../providers/firestore/firestore';
+import { UploadProvider } from '../providers/upload/upload';
 import { firestore_env } from '../environments/firestore_env';
 
 
@@ -61,7 +62,8 @@ import { firestore_env } from '../environments/firestore_env';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirestoreProvider
+    FirestoreProvider,
+    UploadProvider
   ]
 })
 export class AppModule {}
