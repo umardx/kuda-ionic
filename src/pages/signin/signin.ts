@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Loading, LoadingController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
@@ -18,8 +19,8 @@ export class SigninPage {
     public fire: AngularFireAuth, 
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -28,14 +29,19 @@ export class SigninPage {
     
   }
 
-  alert(message: string) {
+  presentToast(message: string) {
 
-    this.alertCtrl.create({
-      title: 'Info!',
-      subTitle: message,
-      buttons: ['OK']
-    }).present();
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'top'
+    });
 
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 
   presentLoading() {
@@ -61,14 +67,14 @@ export class SigninPage {
     .then(data => {
 
       console.log('got data ', data);
-      this.alert('Success! You \'re logged in!');
+      this.presentToast('Success! You \'re logged in!');
 
     })
     .catch(error => {
 
       console.log('got error ', error);
       this.loading.dismiss();
-      this.alert(error.message);
+      this.presentToast(error.message);
 
     });
 

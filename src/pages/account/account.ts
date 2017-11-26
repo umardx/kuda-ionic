@@ -34,6 +34,7 @@ export class AccountPage {
 
       this.accounts = accounts;
       console.log('Accounts:', this.accounts);
+
     });
 
   }

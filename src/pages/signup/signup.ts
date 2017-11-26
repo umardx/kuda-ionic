@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Loading, LoadingController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable} from 'rxjs/Observable';
@@ -35,8 +36,8 @@ export class SignupPage {
     public afs: AngularFirestore,
     public navCtrl: NavController,
     public navParams: NavParams,
-    public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController) {
 
   }
 
@@ -44,12 +45,19 @@ export class SignupPage {
     console.log('ionViewDidLoad SignupPage');
   }
 
-  alert(message: string) {
-    this.alertCtrl.create({
-      title: 'Info!',
-      subTitle: message,
-      buttons: ['OK']
-    }).present();
+  presentToast(message: string) {
+
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'top'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 
   presentLoading() {
@@ -67,25 +75,14 @@ export class SignupPage {
   
     if(this.nim.value < 18100000 || this.nim.value > 18199999) {
 
-      let alert = this.alertCtrl.create({
-          title: 'Error',
-          message: 'Correct your NIM!',
-          buttons: ['OK']
-      });
-      alert.present();
+      this.presentToast('Correct your NIM!');
       return;
 
     } else {
 
       if(this.password.value !== this.retype_password.value) {
 
-      let alert = this.alertCtrl.create({
-        title: 'Error',
-        message: 'Your password and your re-entered password doesn\'t.',
-        buttons: ['OK']
-
-      });
-      alert.present();
+      this.presentToast('Your re-entered password doesn\'t match.');
       return;
 
       } else {
@@ -107,14 +104,14 @@ export class SignupPage {
 
           });
           console.log('got data ', data);
-          this.alert('Registered!');
+          this.presentToast('Account was added successfully!');
 
         })
         .catch(error => {
 
           console.log('got an error ', error);
           this.loading.dismiss();
-          this.alert(error.message);
+          this.presentToast(error.message);
 
         });
 
