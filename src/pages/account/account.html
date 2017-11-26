@@ -22,26 +22,28 @@
 
   <ion-card padding>
     <ion-card-content>
-      <img src="https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/user-512.png" />
+      <img class="img-card" src="https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/user-512.png" />
     </ion-card-content>
   </ion-card>
 
   <ion-card padding>
     <ion-list no-border *ngFor="let account of accounts">
 
-      <ion-item>
-        <ion-icon name="ios-barcode" item-start></ion-icon>
-        <ion-badge item-center>{{ account.nim }}</ion-badge>
+      <ion-list-header>Account Info
+      </ion-list-header>
+      <ion-item text-wrap>
+        <ion-icon name="ios-barcode" item-start color="primary"></ion-icon>
+        <ion-badge item-end>{{ account.nim }}</ion-badge>
       </ion-item>
 
-      <ion-item>
-        <ion-icon name="ios-mail" item-start></ion-icon>
-        <ion-badge item-center>{{ account.email }}</ion-badge>
+      <ion-item text-wrap>
+        <ion-icon name="ios-mail" item-start color="primary"></ion-icon>
+        <ion-badge item-end>{{ account.email }}</ion-badge>
       </ion-item>
 
-      <ion-item class="item-text-wrap">
-        <ion-icon name="ios-book" item-start></ion-icon>
-        <ion-badge item-center *ngFor="let course of account.course">{{ course }}</ion-badge>
+      <ion-item text-wrap>
+        <ion-icon name="ios-book" item-start color="primary"></ion-icon>
+        <ion-badge item-end *ngFor="let course of account.course">{{ course }}</ion-badge>
       </ion-item>
 
     </ion-list>
