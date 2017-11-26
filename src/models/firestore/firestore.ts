@@ -27,9 +27,10 @@ export interface Tps {
 
 }
 
-export interface Marks {
+export interface Uploads {
 
 	code: string;
+	file: string;
 	index: number;
 	mark: number;
 	nim: number;

@@ -33,17 +33,17 @@
       </ion-list-header>
       <ion-item text-wrap>
         <ion-icon name="ios-barcode" item-start color="primary"></ion-icon>
-        <ion-badge item-end>{{ account.nim }}</ion-badge>
+        <ion-badge item-center>{{ account.nim }}</ion-badge>
       </ion-item>
 
       <ion-item text-wrap>
         <ion-icon name="ios-mail" item-start color="primary"></ion-icon>
-        <ion-badge item-end>{{ account.email }}</ion-badge>
+        <ion-badge item-center>{{ account.email }}</ion-badge>
       </ion-item>
 
       <ion-item text-wrap>
         <ion-icon name="ios-book" item-start color="primary"></ion-icon>
-        <ion-badge item-end *ngFor="let course of account.course">{{ course }}</ion-badge>
+        <ion-badge item-center *ngFor="let course of account.course">{{ course }}</ion-badge>
       </ion-item>
 
     </ion-list>
