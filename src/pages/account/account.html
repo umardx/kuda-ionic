@@ -26,17 +26,17 @@
       <ion-list-header>Account Info
       </ion-list-header>
       <ion-item text-wrap>
-        <ion-icon name="ios-barcode" item-start color="primary"></ion-icon>
+        <ion-icon name="ios-barcode-outline" item-start color="primary"></ion-icon>
         <ion-badge item-center>{{ account.nim }}</ion-badge>
       </ion-item>
 
       <ion-item text-wrap>
-        <ion-icon name="ios-mail" item-start color="primary"></ion-icon>
+        <ion-icon name="ios-mail-outline" item-start color="primary"></ion-icon>
         <ion-badge item-center>{{ account.email }}</ion-badge>
       </ion-item>
 
       <ion-item text-wrap>
-        <ion-icon name="ios-book" item-start color="primary"></ion-icon>
+        <ion-icon name="ios-book-outline" item-start color="primary"></ion-icon>
         <ion-badge item-center *ngFor="let course of account.course">{{ course }}</ion-badge>
       </ion-item>
 
