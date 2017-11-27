@@ -30,9 +30,11 @@ export interface Tps {
 export interface Uploads {
 
 	code: string;
+	createdAt: Date;
 	file: string;
 	index: number;
 	mark: number;
 	nim: number;
+	title: string;
 	
 }

@@ -17,28 +17,10 @@ export class FirestoreProvider {
   uploadsCollection: AngularFirestoreCollection<Uploads>;
   uploads: Observable<Uploads[]>;
 
-  jancokCollection: AngularFirestoreCollection<Account>;
-  jancoks: Observable<Account[]>;
-
   constructor(
 
     public afs: AngularFirestore,
     public fire: AngularFireAuth) {
-
-  }
-
-  getJancoks(val: string) {
-
-    this.jancokCollection = this.afs.collection<Account>('accounts', ref => ref.where('email', '==', val));
-    this.jancoks = this.jancokCollection.snapshotChanges().map(actions => {
-      return actions.map(action => {
-        const data = action.payload.doc.data() as Account;
-        const id = action.payload.doc.id;
-        return { id, ...data };
-      });
-    });
-
-    return this.jancoks;
 
   }
 

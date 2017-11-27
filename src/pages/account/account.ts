@@ -16,9 +16,6 @@ export class AccountPage {
   accounts: Account[];
   tps: Tps[];
 
-  jancoks: Account[];
-
-
   course: string[];
 	email: string;
 
@@ -37,7 +34,7 @@ export class AccountPage {
     this.presentLoading();
     this.email = fire.auth.currentUser.email;
 
-    this.fp.getAccounts(this.email).subscribe(result=>{
+    this.fp.getAccounts(this.email).subscribe(result => {
 
       this.accounts = result;
       
