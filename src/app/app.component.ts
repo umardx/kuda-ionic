@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Splash } from '../pages/splash/splash';
 
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -13,7 +14,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 export class MyApp {
   rootPage:any;
 
-  constructor(private fire: AngularFireAuth, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(private fire: AngularFireAuth, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, modalCtrl: ModalController) {
     this.fire.authState.subscribe(auth => {
       if(!auth)
         this.rootPage = HomePage;
@@ -24,7 +25,9 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
-      splashScreen.hide();
+      
+      let splash = modalCtrl.create(Splash);
+            splash.present();
     });
   }
 }
