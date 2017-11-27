@@ -37,10 +37,11 @@ export class FeedPage {
 
 		this.fp.getAccounts(email).subscribe(result => {
 
+			this.resetTps();
+			this.resetModuls();
 			if (result.length>0) {
-				this.resetTps();
-				this.resetModuls();
-				this.updateTps(result[0].course);
+				
+				this.updateCourseList(result[0].course);
 			}
 			this.loading.dismiss();
 
@@ -58,7 +59,7 @@ export class FeedPage {
 		this.moduls = [];
 	}
 
-	updateTps(course) {
+	updateCourseList(course) {
 
 		this.course = course;
 		this.course.forEach((val)=>{
@@ -75,7 +76,7 @@ export class FeedPage {
 			});
 
 			// Retrieve Moduls
-			this.fp.getTPs(val).subscribe(result => {
+			this.fp.getModuls(val).subscribe(result => {
 
 				result.forEach(modul => {
 
