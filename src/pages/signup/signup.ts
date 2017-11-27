@@ -106,9 +106,7 @@ export class SignupPage {
           });
           console.log('got data ', data);
           this.presentToast('Account was added successfully!');
-          this.fire.auth.signOut();
           this.loading.dismiss();
-          this.navCtrl.remove(1);
 
         })
         .catch(error => {
