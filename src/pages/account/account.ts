@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
+import { IonicPage, Loading, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Account, Tps } from '../../models/firestore/firestore';
@@ -25,8 +25,6 @@ export class AccountPage {
 
     public fp: FirestoreProvider,
     public fire: AngularFireAuth,
-    public navCtrl: NavController,
-    public navParams: NavParams,
     public loadingCtrl: LoadingController
 
     ) {
