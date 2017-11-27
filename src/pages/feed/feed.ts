@@ -37,9 +37,11 @@ export class FeedPage {
 
 		this.fp.getAccounts(email).subscribe(result => {
 
-			this.resetTps();
-			this.resetModuls();
-			this.updateTps(result[0].course);
+			if (result.length>0) {
+				this.resetTps();
+				this.resetModuls();
+				this.updateTps(result[0].course);
+			}
 			this.loading.dismiss();
 
 		});
@@ -100,12 +102,11 @@ export class FeedPage {
 	doRefresh(refresher) {
 
 		this.getCourseCode(this.email);
-		console.log('tps:', this.tps);
 		setTimeout(() => {
 
 		  refresher.complete();
 
-		}, 1000);
+		}, 500);
 		
 	}
 

@@ -18,8 +18,10 @@ export class LaporanPage {
 	doRefresh(refresher) {
 
 		setTimeout(() => {
+
 		  refresher.complete();
-		}, 1000);
+		  
+		}, 500);
 	}
 
 	openUploadnPage() {

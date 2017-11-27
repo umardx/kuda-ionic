@@ -101,11 +101,14 @@ export class SignupPage {
 
             'nim': this.nim.value,
             'email': this.email.value,
-            'courses': null
+            'course': [""]
 
           });
           console.log('got data ', data);
           this.presentToast('Account was added successfully!');
+          this.fire.auth.signOut();
+          this.loading.dismiss();
+          this.navCtrl.remove(1);
 
         })
         .catch(error => {
