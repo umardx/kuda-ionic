@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
-import { Moduls, Tps } from '../../models/firestore/firestore';
+import { Uploads } from '../../models/firestore/firestore';
 import { UploadPage } from '../../pages/upload/upload';
 
 @IonicPage()
@@ -32,11 +32,16 @@ export class LaporanPage {
 
 	getItems() {
 
-		console.log('getItem()');
+		console.log('getItems()');
 	}
 	
 	ionViewDidLoad() {
+
 	console.log('ionViewDidLoad LaporanPage');
+	
 	}
+
+
+	//anu
 
 }
