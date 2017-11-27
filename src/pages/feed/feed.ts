@@ -35,7 +35,8 @@ export class FeedPage {
 		this.fp.getAccounts(email).subscribe(result => {
 
 			this.resetTps();
-			this.updateCourse(result[0].course);
+			this.resetModuls();
+			this.updateTps(result[0].course);
 
 		});
 	}
@@ -43,19 +44,36 @@ export class FeedPage {
 	resetTps() {
 
 		this.tps = [];
-		
+
 	}
 
-	updateCourse(course) {
+	resetModuls() {
+
+		this.moduls = [];
+	}
+
+	updateTps(course) {
 
 		this.course = course;
 		this.course.forEach((val)=>{
 
+			// Retrieve TPs
 			this.fp.getTPs(val).subscribe(result => {
 
 				result.forEach(tp => {
 
 					this.pushTps(tp)
+
+				});
+
+			});
+
+			// Retrieve Moduls
+			this.fp.getTPs(val).subscribe(result => {
+
+				result.forEach(modul => {
+
+					this.pushModuls(modul)
 
 				});
 
@@ -68,6 +86,11 @@ export class FeedPage {
 
 		this.tps.push(tp);
 
+	}
+
+	pushModuls(modul) {
+
+		this.moduls.push(modul);
 	}
 
 	doRefresh(refresher) {

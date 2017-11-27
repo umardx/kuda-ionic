@@ -30,44 +30,16 @@
 
   <ion-list>
 
-    <ion-list-header>Modul Praktikum</ion-list-header>
+   <ion-list-header>Modul Praktikum</ion-list-header>
 
-    <ion-item text-wrap>
+    <ion-item text-wrap *ngFor="let modul of moduls">
       <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183334.svg">
+        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
       </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
+      <h2>{{ modul.code }} | {{ modul.title }}</h2>
       <p>12 Agustus 2017 - 23:59</p>
       <button ion-button clear item-end>View</button>
     </ion-item>
-
-    <ion-item text-wrap>
-      <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183334.svg">
-      </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
-      <p>12 Agustus 2017 - 23:59</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-
-    <ion-item text-wrap>
-      <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183334.svg">
-      </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
-      <p>12 Agustus 2017 - 23:59</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-
-    <ion-item text-wrap>
-      <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183334.svg">
-      </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
-      <p>12 Agustus 2017 - 23:59</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-
   </ion-list>
 
 </ion-content>
