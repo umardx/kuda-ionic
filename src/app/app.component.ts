@@ -26,8 +26,10 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       
-      let splash = modalCtrl.create(Splash);
-            splash.present();
+        if(this.rootPage == HomePage) {
+          let __splash = modalCtrl.create(Splash);
+          __splash.present();
+        }
     });
   }
 }

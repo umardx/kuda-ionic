@@ -16,10 +16,8 @@ export class FeedPage {
 
 	moduls: Moduls[];
 	tps: Tps[];
-
 	course: string[];
 	email: string;
-
 	loading: Loading;
 
 	constructor(
@@ -43,7 +41,6 @@ export class FeedPage {
 				
 				this.updateCourseList(result[0].course);
 			}
-			this.loading.dismiss();
 
 		});
 	}
@@ -85,6 +82,7 @@ export class FeedPage {
 				});
 
 			});
+			this.loading.dismiss();
 
 		});
 	}
@@ -102,12 +100,13 @@ export class FeedPage {
 
 	doRefresh(refresher) {
 
+		this.presentLoading();
 		this.getCourseCode(this.email);
 		setTimeout(() => {
 
 		  refresher.complete();
 
-		}, 500);
+		}, 100);
 		
 	}
 

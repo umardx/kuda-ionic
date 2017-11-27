@@ -51,11 +51,11 @@ export class FirestoreProvider {
 
   }
 
-  getUploads(val: string) {
+  getUploads(val: number) {
 
-    this.uploadsCollection = this.afs.collection('uploads', ref => ref.where('code', '==', val));
+    this.uploadsCollection = this.afs.collection('laporans', ref => ref.where('nim', '==', val));
     this.uploads = this.uploadsCollection.valueChanges();
-    return this.tps;
+    return this.uploads;
 
   }
 

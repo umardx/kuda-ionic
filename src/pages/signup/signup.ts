@@ -99,9 +99,9 @@ export class SignupPage {
 
           this.afs.collection('accounts').add({
 
-            'nim': this.nim.value,
+            'nim': +this.nim.value,
             'email': this.email.value,
-            'course': [""]
+            'course': [" "]
 
           });
           console.log('got data ', data);

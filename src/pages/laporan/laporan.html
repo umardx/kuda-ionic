@@ -24,38 +24,18 @@
 
   <ion-list-header>Laporan Praktikum</ion-list-header>
 
-  <ion-list>
+  <ion-list *ngFor="let upload of uploads">
     <ion-item-sliding>
-      <ion-item>
+      <ion-item text-wrap>
         <ion-avatar item-start>
           <img src="https://image.flaticon.com/icons/svg/235/235296.svg">
         </ion-avatar>
-        <h3>ET3100 | Judul Modul 1</h3>
+        <h3>{{ upload.code }} | {{ upload.title }}</h3>
         <p>12 Agustus 2017 - 23:59</p>
         <button ion-button clear item-end>View</button>
       </ion-item>
       <ion-item-options side="right">
-        <button ion-button color="primary">
-          <ion-icon name="star"></ion-icon>
-          80
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    
-    <ion-item-sliding>
-      <ion-item>
-        <ion-avatar item-start>
-          <img src="https://image.flaticon.com/icons/svg/235/235296.svg">
-        </ion-avatar>
-        <h3>ET3100 | Judul Modul 1</h3>
-        <p>12 Agustus 2017 - 23:59</p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="primary">
-          <ion-icon name="star"></ion-icon>
-          80
-        </button>
+        <button ion-button color="primary"><ion-icon name="star"></ion-icon>{{ upload.mark }}</button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
