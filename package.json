@@ -38,7 +38,7 @@
     "@ionic/app-scripts": "3.0.1",
     "typescript": "2.3.4"
   },
-  "description": "An Ionic project",
+  "description": "Labwork App Projcect",
   "cordova": {
     "plugins": {
       "cordova-plugin-document-viewer": {}
