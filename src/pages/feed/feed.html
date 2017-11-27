@@ -14,6 +14,19 @@
 
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
+<ion-card>
+
+  <ion-card-header>
+   JSON
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ tps | json }}
+  </ion-card-content>
+
+</ion-card>
+
+
   <ion-list>
 
    <ion-list-header>Tugas Pendahuluan</ion-list-header>

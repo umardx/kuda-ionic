@@ -27,36 +27,47 @@ export class FeedPage {
 		public navCtrl: NavController,
 		public navParams: NavParams) {
 
+		this.tps = [];
 		this.email = fire.auth.currentUser.email;
-		this.fp.getAccounts(this.email).subscribe(result => {
+	}
+
+	getCourseCode(email) {
+
+		this.fp.getAccounts(email).subscribe(result => {
 
 			this.updateCourse(result[0].course);
 
 		});
-
-		this.tps = []
 	}
 
 	updateCourse(course) {
+
 		this.course = course;
+		this.course.forEach((val)=>{
 
-		this.course.forEach((c)=>{
+			this.fp.getTPs(val).subscribe(result => {
 
-			this.fp.getTPs(c).subscribe(result => {
+				result.forEach(tp => {
 
-				result.forEach((tp)=>this.pushTP(tp));
+					this.pushTps(tp)
+
+				});
 
 			});
 
 		});
 	}
 
-	pushTP(tp){
-		this.tps.push(tp)
+	pushTps(tp) {
+
+		this.tps.push(tp);
+
 	}
 
 	doRefresh(refresher) {
 
+		this.getCourseCode(this.email);
+		console.log('tps:', this.tps);
 		setTimeout(() => {
 
 		  refresher.complete();
@@ -67,6 +78,7 @@ export class FeedPage {
 
 	ionViewDidLoad() {
 
+		this.getCourseCode(this.email);
 		console.log('ionViewDidLoad FeedPage');
 
 	}
