@@ -11,6 +11,7 @@ import { Moduls, Tps } from '../../models/firestore/firestore';
   templateUrl: 'feed.html',
 
 })
+
 export class FeedPage {
 
 	moduls: Moduls[];
@@ -29,28 +30,45 @@ export class FeedPage {
 		this.email = fire.auth.currentUser.email;
 		this.fp.getAccounts(this.email).subscribe(result => {
 
-		this.course = result[0].course;
-		console.log('result: ', this.course);
+			this.updateCourse(result[0].course);
+
 		});
+
+		this.tps = []
+	}
+
+	updateCourse(course) {
+		this.course = course;
+
+		this.course.forEach((c)=>{
+
+			this.fp.getTPs(c).subscribe(result => {
+
+				result.forEach((tp)=>this.pushTP(tp));
+
+			});
+
+		});
+	}
+
+	pushTP(tp){
+		this.tps.push(tp)
 	}
 
 	doRefresh(refresher) {
 
-		console.log('Begin async operation', refresher);
-
 		setTimeout(() => {
-		  console.log('Async operation has ended');
+
 		  refresher.complete();
+
 		}, 1000);
 		
 	}
 
-	getItems(ev: any) {
-		
-	}
-
 	ionViewDidLoad() {
+
 		console.log('ionViewDidLoad FeedPage');
+
 	}
 
 }

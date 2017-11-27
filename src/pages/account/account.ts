@@ -13,12 +13,8 @@ import { Account, Tps } from '../../models/firestore/firestore';
 })
 export class AccountPage {
 	
+  email: string;
   accounts: Account[];
-  tps: Tps[];
-
-  course: string[];
-	email: string;
-
   loading: Loading;
 
   constructor(
@@ -31,33 +27,44 @@ export class AccountPage {
     
     this.presentLoading();
     this.email = fire.auth.currentUser.email;
-
     this.fp.getAccounts(this.email).subscribe(result => {
 
-      this.accounts = result;
-      
+      this.updateAccounts(result);
+
     });
+
+  }
+
+  updateAccounts(accounts) {
+
+    this.accounts = accounts;
 
   }
 
   presentLoading() {
 
     this.loading = this.loadingCtrl.create({
+
       spinner: 'ios',
       content: "Please wait...",
       dismissOnPageChange: true
+
     });
     this.loading.present();
 
   }
 
   signOut() {
+
 		this.fire.auth.signOut();
     this.presentLoading();
+
 	}
 
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad AccountPage');
+    
   }
 
 }

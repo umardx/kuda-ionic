@@ -26,8 +26,8 @@ export class FirestoreProvider {
 
   getAccounts(val: string) {
 
-  	this.accountsCollection = this.afs.collection('accounts', ref => ref.where('email', '==', val)); // reference
-    this.accounts = this.accountsCollection.valueChanges(); // Observable of data
+  	this.accountsCollection = this.afs.collection('accounts', ref => ref.where('email', '==', val));
+    this.accounts = this.accountsCollection.valueChanges();
     return this.accounts;
   
   }
