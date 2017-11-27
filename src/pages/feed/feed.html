@@ -14,59 +14,18 @@
 
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
-<ion-card>
-
-  <ion-card-header>
-   JSON
-  </ion-card-header>
-
-  <ion-card-content>
-    {{ tps | json }}
-  </ion-card-content>
-
-</ion-card>
-
-
   <ion-list>
 
    <ion-list-header>Tugas Pendahuluan</ion-list-header>
 
-    <ion-item text-wrap>
+    <ion-item text-wrap *ngFor="let tp of tps">
       <ion-avatar item-start>
         <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
       </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
+      <h2>{{ tp.code }} | {{ tp.title }}</h2>
       <p>12 Agustus 2017 - 23:59</p>
       <button ion-button clear item-end>View</button>
     </ion-item>
-
-    <ion-item text-wrap>
-      <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
-      </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
-      <p>12 Agustus 2017 - 23:59</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-
-    <ion-item text-wrap>
-      <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
-      </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
-      <p>12 Agustus 2017 - 23:59</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-
-    <ion-item text-wrap>
-      <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
-      </ion-avatar>
-      <h2>ET3100 | Judul Modul 1</h2>
-      <p>12 Agustus 2017 - 23:59</p>
-      <button ion-button clear item-end>View</button>
-    </ion-item>
-
   </ion-list>
 
   <ion-list>

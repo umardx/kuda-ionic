@@ -27,7 +27,6 @@ export class FeedPage {
 		public navCtrl: NavController,
 		public navParams: NavParams) {
 
-		this.tps = [];
 		this.email = fire.auth.currentUser.email;
 	}
 
@@ -35,9 +34,16 @@ export class FeedPage {
 
 		this.fp.getAccounts(email).subscribe(result => {
 
+			this.resetTps();
 			this.updateCourse(result[0].course);
 
 		});
+	}
+
+	resetTps() {
+
+		this.tps = [];
+		
 	}
 
 	updateCourse(course) {
