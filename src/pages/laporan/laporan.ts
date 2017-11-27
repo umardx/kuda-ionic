@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import { UploadPage } from '../../pages/upload/upload';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LaporanPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FirestoreProvider } from '../../providers/firestore/firestore';
+import { Moduls, Tps } from '../../models/firestore/firestore';
+import { UploadPage } from '../../pages/upload/upload';
 
 @IonicPage()
 @Component({
@@ -21,10 +17,7 @@ export class LaporanPage {
 
 	doRefresh(refresher) {
 
-		console.log('Begin async operation', refresher);
-
 		setTimeout(() => {
-		  console.log('Async operation has ended');
 		  refresher.complete();
 		}, 1000);
 	}
@@ -33,6 +26,11 @@ export class LaporanPage {
 
 		this.navCtrl.push(UploadPage);
 
+	}
+
+	getItems() {
+
+		console.log('getItem()');
 	}
 	
 	ionViewDidLoad() {

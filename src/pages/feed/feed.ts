@@ -105,6 +105,11 @@ export class FeedPage {
 		
 	}
 
+	getItems() {
+
+		console.log('getItem()');
+	}
+
 	ionViewDidLoad() {
 
 		this.getCourseCode(this.email);

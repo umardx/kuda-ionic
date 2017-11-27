@@ -4,6 +4,10 @@
     <ion-title>Feed</ion-title>
   </ion-navbar>
 
+  <ion-navbar color="primary">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-navbar>
+
 </ion-header>
 
 <ion-content class="list-avatar-page">
@@ -11,8 +15,6 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
   <ion-list>
 
@@ -34,7 +36,7 @@
 
     <ion-item text-wrap *ngFor="let modul of moduls">
       <ion-avatar item-start>
-        <img src="https://image.flaticon.com/icons/svg/183/183333.svg">
+        <img src="https://image.flaticon.com/icons/svg/183/183334.svg">
       </ion-avatar>
       <h2>{{ modul.code }} | {{ modul.title }}</h2>
       <p>12 Agustus 2017 - 23:59</p>
