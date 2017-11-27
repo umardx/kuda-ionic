@@ -5,8 +5,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
 @Component({
+
   selector: 'page-signin',
   templateUrl: 'signin.html',
+  
 })
 export class SigninPage {
 

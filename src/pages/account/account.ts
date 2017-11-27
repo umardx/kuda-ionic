@@ -15,6 +15,7 @@ export class AccountPage {
 	
   email: string;
   accounts: Account[];
+
   loading: Loading;
 
   constructor(
@@ -25,13 +26,7 @@ export class AccountPage {
 
     ) {
     
-    this.presentLoading();
     this.email = fire.auth.currentUser.email;
-    this.fp.getAccounts(this.email).subscribe(result => {
-
-      this.updateAccounts(result);
-
-    });
 
   }
 
@@ -41,6 +36,15 @@ export class AccountPage {
 
   }
 
+  getAccounts(val) {
+
+    this.presentLoading();
+    this.fp.getAccounts(val).subscribe(result => {
+
+      this.updateAccounts(result);
+
+    });
+  }
   presentLoading() {
 
     this.loading = this.loadingCtrl.create({
@@ -63,6 +67,7 @@ export class AccountPage {
 
   ionViewDidLoad() {
 
+    this.getAccounts(this.email);
     console.log('ionViewDidLoad AccountPage');
     
   }

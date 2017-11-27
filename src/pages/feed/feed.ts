@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Moduls, Tps } from '../../models/firestore/firestore';
@@ -20,11 +20,14 @@ export class FeedPage {
 	course: string[];
 	email: string;
 
+	loading: Loading;
+
 	constructor(
 
 		public fp: FirestoreProvider,
 		public fire: AngularFireAuth,
 		public navCtrl: NavController,
+		public loadingCtrl: LoadingController,
 		public navParams: NavParams) {
 
 		this.email = fire.auth.currentUser.email;
@@ -37,6 +40,7 @@ export class FeedPage {
 			this.resetTps();
 			this.resetModuls();
 			this.updateTps(result[0].course);
+			this.loading.dismiss();
 
 		});
 	}
@@ -110,8 +114,22 @@ export class FeedPage {
 		console.log('getItem()');
 	}
 
+	presentLoading() {
+
+		this.loading = this.loadingCtrl.create({
+
+		  spinner: 'ios',
+		  content: "Please wait...",
+		  dismissOnPageChange: true
+
+		});
+		this.loading.present();
+
+	}
+
 	ionViewDidLoad() {
 
+		this.presentLoading();
 		this.getCourseCode(this.email);
 		console.log('ionViewDidLoad FeedPage');
 
