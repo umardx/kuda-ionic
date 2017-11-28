@@ -44,6 +44,7 @@ export class FeedPage {
 			}
 
 		});
+		this.dismissLoadng();
 	}
 
 	resetTps() {
@@ -83,7 +84,6 @@ export class FeedPage {
 				});
 
 			});
-			this.dismissLoadng();
 
 		});
 	}
