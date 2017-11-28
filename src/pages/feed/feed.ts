@@ -33,6 +33,7 @@ export class FeedPage {
 
 	getCourseCode(email) {
 
+		this.presentLoading();
 		this.fp.getAccounts(email).subscribe(result => {
 
 			this.resetTps();
@@ -100,7 +101,6 @@ export class FeedPage {
 
 	doRefresh(refresher) {
 
-		this.presentLoading();
 		this.getCourseCode(this.email);
 		setTimeout(() => {
 
@@ -130,7 +130,6 @@ export class FeedPage {
 
 	ionViewDidLoad() {
 
-		this.presentLoading();
 		this.getCourseCode(this.email);
 		console.log('ionViewDidLoad FeedPage');
 

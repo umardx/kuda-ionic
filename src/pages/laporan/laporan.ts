@@ -29,6 +29,7 @@ export class LaporanPage {
 
 	getUploads(email) {
 
+		this.presentLoading();
 		this.fp.getAccounts(email).subscribe(result => {
 
 			if (result.length>0) {
@@ -56,7 +57,6 @@ export class LaporanPage {
 	}
 	doRefresh(refresher) {
 
-		this.presentLoading();
 		this.getUploads(this.email);
 		setTimeout(() => {
 
@@ -92,7 +92,6 @@ export class LaporanPage {
 
 	ionViewDidLoad() {
 
-		this.presentLoading();
 		this.getUploads(this.email);
 		console.log('ionViewDidLoad LaporanPage');
 
