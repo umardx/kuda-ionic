@@ -32,6 +32,9 @@ plugins/ios.json
 www/
 $RECYCLE.BIN/
 
+create
+my-release-key.keystore
+
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate

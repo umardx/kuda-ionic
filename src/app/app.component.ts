@@ -25,11 +25,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
-      
-        if(this.rootPage == HomePage) {
-          let __splash = modalCtrl.create(Splash);
-          __splash.present();
-        }
+      splashScreen.hide();
     });
   }
 }
