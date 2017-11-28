@@ -1,7 +1,44 @@
-.img-card {
-    display: block;
-    margin: auto;
-    width: 80%;
-    min-width: 128px;
-    max-width: 512px;
+page-home {
+
+		.flex-container1{
+		  display: flex;
+		  justify-content: center;
+		  margin-top: 120px;
+		}
+
+		.flex-container2{
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  margin-left: 35px;
+		  width: 80%;
+		}
+
+
+      	.sponsor {
+			display: inline-block;
+			width: 100%;
+			background-color: white;
+			height: 80px;
+			padding: 0;
+			margin-top: -5px;
+			margin-bottom: -5px;
+		}
+
+		.jeniss {
+			width: 30%;
+			float: left;
+			text-align: center;
+			margin-left: 0px;
+			margin-right: 0px;
+			margin-top: 120px;
+		}
+
+        .img-card {
+		    display: block;
+		    margin: auto;
+		    width: 80%;
+		    min-width: 128px;
+		    max-width: 512px;
+		}
 }
