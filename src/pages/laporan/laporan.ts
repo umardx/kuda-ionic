@@ -45,7 +45,7 @@ export class LaporanPage {
 			}
 
 		});
-		this.loading.dismiss();
+		this.dismissLoadng();
 
 	}
 
@@ -87,6 +87,17 @@ export class LaporanPage {
 
 		});
 		this.loading.present();
+
+	}
+
+	dismissLoadng() {
+
+		if (this.loading) {
+
+			this.loading.dismiss();
+			this.loading = null;
+
+		}
 
 	}
 

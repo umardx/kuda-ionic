@@ -83,7 +83,7 @@ export class FeedPage {
 				});
 
 			});
-			this.loading.dismiss();
+			this.dismissLoadng();
 
 		});
 	}
@@ -125,6 +125,17 @@ export class FeedPage {
 
 		});
 		this.loading.present();
+
+	}
+
+	dismissLoadng() {
+
+		if (this.loading) {
+
+			this.loading.dismiss();
+			this.loading = null;
+
+		}
 
 	}
 
