@@ -44,6 +44,7 @@ export class FeedPage {
 				if (result.length>0) {
 					
 					this.updateCourseList(result[0].course);
+
 				} else {
 
 					console.log('Got nothing');
@@ -114,6 +115,7 @@ export class FeedPage {
 
 	doRefresh(refresher) {
 
+		console.log('Date:', this.moduls[0].endTime);
 		this.getCourseCode(this.email);
 		setTimeout(() => {
 

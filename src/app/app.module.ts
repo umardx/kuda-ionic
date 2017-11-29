@@ -18,8 +18,6 @@ import { LaporanPage } from '../pages/laporan/laporan';
 import { UploadPage } from '../pages/upload/upload';
 import { AccountPage } from '../pages/account/account';
 
-import { BelumPage } from '../pages/belum/belum';
-
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { UploadProvider } from '../providers/upload/upload';
 import { firestore_env } from '../environments/firestore_env';
@@ -36,7 +34,6 @@ import { firestore_env } from '../environments/firestore_env';
     LaporanPage,
     UploadPage,
     AccountPage,
-    BelumPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +53,6 @@ import { firestore_env } from '../environments/firestore_env';
     LaporanPage,
     UploadPage,
     AccountPage,
-    BelumPage
   ],
   providers: [
     StatusBar,
