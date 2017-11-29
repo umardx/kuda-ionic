@@ -57,11 +57,13 @@ export class FeedPage {
 			});
 
 		} catch(err) {
+
 			console.log('got err: ', err);
 			this.dismissLoadng();
+			
 		}
+		this.dismissLoadng();
 
-		
 	}
 
 	resetTps() {
@@ -118,7 +120,6 @@ export class FeedPage {
 
 	doRefresh(refresher) {
 
-		console.log('Date:', this.moduls[0].endTime);
 		this.getCourseCode(this.email);
 		setTimeout(() => {
 
@@ -139,7 +140,8 @@ export class FeedPage {
 
 		  spinner: 'ios',
 		  content: "Please wait...",
-		  dismissOnPageChange: true
+		  dismissOnPageChange: true,
+		  duration: 5000
 
 		});
 		this.loading.present();

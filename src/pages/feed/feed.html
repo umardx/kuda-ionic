@@ -36,8 +36,14 @@
       </ion-avatar>
       <h2>{{ modul.code }} | {{ modul.title }}</h2>
       <p>{{ modul.startTime }}</p>
-      <button ion-button clear item-end (click)="clickView(modul.file, modul.title)">View</button>
+      <button ion-button clear item-end (click)="clickView(modul.file)">View</button>
     </ion-item>
   </ion-list>
+
+<ion-card *ngIf="(tps?.length == 0) && (moduls?.length == 0)">
+  <ion-card-content>
+    <p>No Content...</p>
+  </ion-card-content>
+</ion-card>
 
 </ion-content>

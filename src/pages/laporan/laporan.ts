@@ -59,6 +59,7 @@ export class LaporanPage {
 			console.log('got err: ', err);
 			this.dismissLoadng();
 		}
+		this.dismissLoadng();
 
 	}
 
