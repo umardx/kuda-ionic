@@ -134,7 +134,7 @@ export class LaporanPage {
 	clickView(url) {
 
 		console.log(url);
-		const browser = this.iab.create(url,'_system');
+		this.iab.create(url,'_system');
 		
 	}
 
