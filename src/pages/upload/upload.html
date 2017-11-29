@@ -1,9 +1,3 @@
-<!--
-  Generated template for the UploadPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="primary">
@@ -12,24 +6,19 @@
 
 </ion-header>
 
-
-<!--<ion-content padding>-->
 <ion-content>
 	<ion-list>
 	  <ion-item>
-	    <ion-label>Course Name</ion-label>
-	    <ion-select [(ngModel)]="courses">
-	      <ion-option value="ET3100">ET3100</ion-option>
-	      <ion-option value="ET2100">ET2100</ion-option>
+	    <ion-label>Course Code</ion-label>
+	    <ion-select (ngModelChange)="onChangeCourse($event)" [(ngModel)]="selectedCode">
+	      <ion-option *ngFor="let code of course" value="{{ code }}">{{ code }}</ion-option>
 	    </ion-select>
 	  </ion-item>
 	
 	  <ion-item>
 	    <ion-label>Modul Name</ion-label>
-	    <ion-select [(ngModel)]="moduls">
-	      <ion-option value="Modul1">Modul 1: "Judul Modul 1"</ion-option>
-	      <ion-option value="Modul2">Modul 2: "Judul Modul 2"</ion-option>
-	      <ion-option value="Modul3">Modul 3: "Judul Modul 3"</ion-option>
+	    <ion-select (ngModelChange)="onChangeModul($event)" [(ngModel)]="selectedIndex">
+	      <ion-option *ngFor="let modul of moduls" value="{{ modul.index }}">{{ modul.code }} | {{ modul.title }}</ion-option>
 	    </ion-select>
 	  </ion-item>
 	  <ion-item>

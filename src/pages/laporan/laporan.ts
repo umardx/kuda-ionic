@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Loading, LoadingController, ToastController, Platform } from 'ionic-angular';
+import { UploadPage } from '../../pages/upload/upload';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Uploads } from '../../models/firestore/firestore';
-
-import { UploadPage } from '../../pages/upload/upload';
-
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @IonicPage()
@@ -81,7 +79,11 @@ export class LaporanPage {
 
 	openUploadnPage() {
 
-		this.navCtrl.push(UploadPage);
+		this.navCtrl.push(UploadPage, {
+
+			data: this.uploads
+
+		});
 
 	}
 
