@@ -173,6 +173,7 @@ export class FeedPage {
 	}
 
 	clickView(url, title) {
+		
 		var options = {
 		    title: title
 		}

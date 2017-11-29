@@ -7,9 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { DocumentViewer} from '@ionic-native/document-viewer'
-import { FileTransfer } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
 
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -24,6 +21,9 @@ import { AccountPage } from '../pages/account/account';
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { UploadProvider } from '../providers/upload/upload';
 import { firestore_env } from '../environments/firestore_env';
+import { DocumentViewer} from '@ionic-native/document-viewer'
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 
 @NgModule({
