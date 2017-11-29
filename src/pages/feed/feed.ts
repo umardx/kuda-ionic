@@ -34,17 +34,29 @@ export class FeedPage {
 	getCourseCode(email) {
 
 		this.presentLoading();
-		this.fp.getAccounts(email).subscribe(result => {
+		try {
 
-			this.resetTps();
-			this.resetModuls();
-			if (result.length>0) {
-				
-				this.updateCourseList(result[0].course);
-			}
+			this.fp.getAccounts(email).subscribe(result => {
 
-		});
-		this.dismissLoadng();
+				this.resetTps();
+				this.resetModuls();
+				if (result.length>0) {
+					
+					this.updateCourseList(result[0].course);
+				} else {
+
+					console.log('Got nothing');
+				}
+				this.dismissLoadng();
+
+			});
+
+		} catch(err) {
+			console.log('got err: ', err);
+			this.dismissLoadng();
+		}
+
+		
 	}
 
 	resetTps() {

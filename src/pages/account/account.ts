@@ -39,12 +39,24 @@ export class AccountPage {
   getAccounts(val) {
 
     this.presentLoading();
-    this.fp.getAccounts(val).subscribe(result => {
+    try {
 
-      this.updateAccounts(result);
+      this.fp.getAccounts(val).subscribe(result => {
 
-    });
+        this.updateAccounts(result);
+
+      });
+      this.dismissLoadng();
+      
+    } catch(err) {
+
+      console.log('Got nothing');
+      this.dismissLoadng();
+
+    }
+
   }
+
   presentLoading() {
 
     this.loading = this.loadingCtrl.create({
@@ -55,6 +67,17 @@ export class AccountPage {
 
     });
     this.loading.present();
+
+  }
+
+  dismissLoadng() {
+
+    if (this.loading) {
+
+      this.loading.dismiss();
+      this.loading = null;
+
+    }
 
   }
 

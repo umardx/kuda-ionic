@@ -30,22 +30,29 @@ export class LaporanPage {
 	getUploads(email) {
 
 		this.presentLoading();
-		this.fp.getAccounts(email).subscribe(result => {
+		try {
+			this.fp.getAccounts(email).subscribe(result => {
 
-			if (result.length>0) {
+				if (result.length>0) {
 
-				let nim = +result[0].nim;
-				this.fp.getUploads(nim).subscribe(result => {
+					let nim = +result[0].nim;
+					this.fp.getUploads(nim).subscribe(result => {
 
-					console.log('result2:', result);
-					this.updateUploads(result);
+						console.log('result2:', result);
+						this.updateUploads(result);
 
-				})
+					})
 
-			}
+				}
 
-		});
-		this.dismissLoadng();
+			});
+			this.dismissLoadng();
+
+		} catch(err) {
+			
+			console.log('got err: ', err);
+			this.dismissLoadng();
+		}
 
 	}
 
