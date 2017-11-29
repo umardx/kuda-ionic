@@ -4,6 +4,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Moduls, Tps } from '../../models/firestore/firestore';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 @IonicPage()
 @Component({
 
@@ -27,7 +29,8 @@ export class FeedPage {
 		public navCtrl: NavController,
 		public loadingCtrl: LoadingController,
 		public navParams: NavParams,
-		public toastCtrl: ToastController) {
+		public toastCtrl: ToastController,
+		private iab: InAppBrowser) {
 
 		this.email = fire.auth.currentUser.email;
 	}
@@ -177,6 +180,7 @@ export class FeedPage {
 	clickView(url) {
 		
 		console.log(url);
+		const browser = this.iab.create(url,'_system');
 
 	}
 

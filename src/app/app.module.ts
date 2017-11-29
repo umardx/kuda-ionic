@@ -23,6 +23,9 @@ import { UploadProvider } from '../providers/upload/upload';
 import { firestore_env } from '../environments/firestore_env';
 
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -57,9 +60,10 @@ import { firestore_env } from '../environments/firestore_env';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirestoreProvider,
-    UploadProvider
+    UploadProvider,
+    InAppBrowser,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

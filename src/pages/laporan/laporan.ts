@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Loading, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController, ToastController, Platform } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Uploads } from '../../models/firestore/firestore';
 import { File } from '@ionic-native/file';
 
 import { UploadPage } from '../../pages/upload/upload';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @IonicPage()
 @Component({
@@ -25,7 +27,9 @@ export class LaporanPage {
 		public navCtrl: NavController,
 		public loadingCtrl: LoadingController,
 		public navParams: NavParams,
-		public toastCtrl: ToastController) {
+		public toastCtrl: ToastController,
+		private iab: InAppBrowser,
+		private pl: Platform) {
 
 		this.email = fire.auth.currentUser.email;
 	}
@@ -129,6 +133,7 @@ export class LaporanPage {
 	clickView(url) {
 
 		console.log(url);
+		const browser = this.iab.create(url,'_system');
 		
 	}
 
