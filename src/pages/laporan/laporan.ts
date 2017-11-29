@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, Loading, LoadingController, ToastC
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Uploads } from '../../models/firestore/firestore';
-import { File } from '@ionic-native/file';
 
 import { UploadPage } from '../../pages/upload/upload';
 
