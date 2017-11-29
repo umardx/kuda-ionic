@@ -40,4 +40,10 @@
     </ion-item-sliding>
   </ion-list>
 
+<ion-card *ngIf="(uploads?.length == 0)">
+  <ion-card-content>
+    <p>No Content...</p>
+  </ion-card-content>
+</ion-card>
+
 </ion-content>
