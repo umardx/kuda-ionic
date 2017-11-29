@@ -40,4 +40,10 @@
     </ion-item>
   </ion-list>
 
+<ion-card *ngIf="(tps?.length == 0) && (moduls?.length == 0)">
+  <ion-card-content>
+    <p>No Content...</p>
+  </ion-card-content>
+</ion-card>
+
 </ion-content>
