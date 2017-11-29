@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, Loading, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
-import { Account, Tps } from '../../models/firestore/firestore';
+import { Account } from '../../models/firestore/firestore';
 
 @IonicPage()
 @Component({
