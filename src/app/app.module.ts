@@ -21,9 +21,6 @@ import { AccountPage } from '../pages/account/account';
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { UploadProvider } from '../providers/upload/upload';
 import { firestore_env } from '../environments/firestore_env';
-import { DocumentViewer} from '@ionic-native/document-viewer'
-import { FileTransfer } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
 
 
 @NgModule({
@@ -36,7 +33,7 @@ import { File } from '@ionic-native/file';
     FeedPage,
     LaporanPage,
     UploadPage,
-    AccountPage,
+    AccountPage
   ],
   imports: [
     BrowserModule,
@@ -55,17 +52,14 @@ import { File } from '@ionic-native/file';
     FeedPage,
     LaporanPage,
     UploadPage,
-    AccountPage,
+    AccountPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirestoreProvider,
-    UploadProvider,
-    DocumentViewer,
-    FileTransfer,
-    File
+    UploadProvider
   ]
 })
 export class AppModule {}

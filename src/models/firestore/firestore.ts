@@ -9,10 +9,10 @@ export interface Account {
 export interface Moduls {
 
 	code: string;
-	endTime: Date;
+	endTime: string;
 	file: string;
 	index: number;
-	startTime: Date;
+	startTime: string;
 	title: string;
 
 }
@@ -20,7 +20,7 @@ export interface Moduls {
 export interface Tps {
 
 	code: string;
-	endTime: Date;
+	endTime: string;
 	file: string;
 	index: number;
 	title: string;
@@ -30,7 +30,7 @@ export interface Tps {
 export interface Uploads {
 
 	code: string;
-	createdAt: Date;
+	createdAt: string;
 	file: string;
 	index: number;
 	mark: number;
