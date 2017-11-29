@@ -22,7 +22,7 @@
 	    </ion-select>
 	  </ion-item>
 	  <ion-item>
-	  	<input type="file" #fileInput padding>
+	  	<input (ngModelChange)="onChangeFile($event)" type="file" [(ngModel)]="selectedFile" padding>
 	  	<button ion-button block (click)="uploadLaporan()">Upload</button>
 	  </ion-item>
 	</ion-list>

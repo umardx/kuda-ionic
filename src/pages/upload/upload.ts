@@ -116,6 +116,10 @@ export class UploadPage {
 
 	}
 
+	onChangeFile(file) {
+
+	}
+	
 	uploadLaporan() {
 
 		console.log('Upload Laporan Weh!');
