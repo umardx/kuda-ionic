@@ -39,7 +39,6 @@ export class LaporanPage {
 					let nim = +result[0].nim;
 					this.fp.getUploads(nim).subscribe(result => {
 
-						console.log('result2:', result);
 						this.updateUploads(result);
 
 					})
