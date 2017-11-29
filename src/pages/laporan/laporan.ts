@@ -4,6 +4,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Uploads } from '../../models/firestore/firestore';
 import { DocumentViewer } from '@ionic-native/document-viewer';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+
 import { UploadPage } from '../../pages/upload/upload';
 
 @IonicPage()
@@ -23,6 +26,8 @@ export class LaporanPage {
 		public fire: AngularFireAuth,
 		public navCtrl: NavController,
 		public document: DocumentViewer,
+		public transfer: FileTransfer,
+		public file: File,
 		public loadingCtrl: LoadingController,
 		public navParams: NavParams,
 		public toastCtrl: ToastController) {
@@ -126,12 +131,13 @@ export class LaporanPage {
 	toast.present();
 	}
 
-	clickView(url, title) {
-		var options = {
-		    title: title
-		}
-		this.document.viewDocument(url, 'application/pdf', options)
-		this.presentToast('Buka file: ' + url);
+	clickView(url) {
+		const fileTransfer: FileTransferObject = this.transfer.create();
+		fileTransfer.download(url, this.file.dataDirectory + 'file.pdf').then((entry) => {
+		console.log('download complete: ' + entry.toURL());
+		}, (error) => {
+		// handle error
+		});
 		
 	}
 

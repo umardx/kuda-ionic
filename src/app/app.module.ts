@@ -8,6 +8,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { DocumentViewer} from '@ionic-native/document-viewer'
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -61,7 +63,9 @@ import { firestore_env } from '../environments/firestore_env';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirestoreProvider,
     UploadProvider,
-    DocumentViewer
+    DocumentViewer,
+    FileTransfer,
+    File
   ]
 })
 export class AppModule {}

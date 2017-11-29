@@ -12,7 +12,8 @@ import * as firebase from 'firebase';
 export class UploadProvider {
 
 	constructor(
-
+		//private af: AngularFire,
+		//private db: AngularFireDatabase
 		) {
 	}
 
