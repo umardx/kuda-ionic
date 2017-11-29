@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Loading, LoadingController, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
+import { DocumentViewer } from '@ionic-native/document-viewer';
 import { Moduls, Tps } from '../../models/firestore/firestore';
 
 @IonicPage()
@@ -25,6 +26,7 @@ export class FeedPage {
 		public fp: FirestoreProvider,
 		public fire: AngularFireAuth,
 		public navCtrl: NavController,
+		public document: DocumentViewer,
 		public loadingCtrl: LoadingController,
 		public navParams: NavParams,
 		public toastCtrl: ToastController) {
@@ -170,9 +172,12 @@ export class FeedPage {
 	toast.present();
 	}
 
-	clickView(file) {
-
-		this.presentToast('Buka file: ' + file);
+	clickView(url, title) {
+		var options = {
+		    title: title
+		}
+		this.document.viewDocument(url, 'application/pdf', options)
+		this.presentToast('Buka file: ' + url);
 		
 	}
 

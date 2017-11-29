@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { DocumentViewer} from '@ionic-native/document-viewer'
 
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -59,7 +60,8 @@ import { firestore_env } from '../environments/firestore_env';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirestoreProvider,
-    UploadProvider
+    UploadProvider,
+    DocumentViewer
   ]
 })
 export class AppModule {}
