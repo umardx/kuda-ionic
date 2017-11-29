@@ -31,8 +31,8 @@
           <img src="https://image.flaticon.com/icons/svg/235/235296.svg">
         </ion-avatar>
         <h3>{{ upload.code }} | {{ upload.title }}</h3>
-        <p>12 Agustus 2017 - 23:59</p>
-        <button ion-button clear item-end>View</button>
+        <p>{{ upload.createdAt }}</p>
+        <button ion-button clear item-end (click)="clickView(upload.file)">View</button>
       </ion-item>
       <ion-item-options side="right">
         <button ion-button color="primary"><ion-icon name="star"></ion-icon>{{ upload.mark }}</button>

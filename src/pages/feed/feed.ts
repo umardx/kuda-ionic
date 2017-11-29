@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Moduls, Tps } from '../../models/firestore/firestore';
@@ -26,7 +26,8 @@ export class FeedPage {
 		public fire: AngularFireAuth,
 		public navCtrl: NavController,
 		public loadingCtrl: LoadingController,
-		public navParams: NavParams) {
+		public navParams: NavParams,
+		public toastCtrl: ToastController) {
 
 		this.email = fire.auth.currentUser.email;
 	}
@@ -149,6 +150,28 @@ export class FeedPage {
 
 		}
 
+	}
+
+	presentToast(message: string) {
+
+	let toast = this.toastCtrl.create({
+	  message: message,
+	  duration: 2500,
+	  showCloseButton: true,
+	  position: 'top'
+	});
+
+	toast.onDidDismiss(() => {
+	  console.log('Dismissed toast');
+	});
+
+	toast.present();
+	}
+
+	clickView(file) {
+
+		this.presentToast('Buka file: ' + file);
+		
 	}
 
 	ionViewDidLoad() {
