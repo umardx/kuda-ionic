@@ -7,6 +7,13 @@
 </ion-header>
 
 <ion-content>
+	<div *ngIf="currentUpload">
+	  <div class="progress">
+	    <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+	  </div>
+	  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+	</div>
+	
 	<ion-list>
 	  <ion-item>
 	    <ion-label>Course Code</ion-label>
@@ -21,6 +28,7 @@
 	      <ion-option *ngFor="let modul of moduls" value="{{ modul.index }}">{{ modul.code }} | {{ modul.title }}</ion-option>
 	    </ion-select>
 	  </ion-item>
+
 	  <ion-item>
 	  	<input (ngModelChange)="onChangeFile($event)" type="file" [(ngModel)]="selectedFile" padding>
 	  	<button ion-button block (click)="uploadLaporan()">Upload</button>
