@@ -3,7 +3,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { Account, Tps, Moduls, Uploads } from '../../models/firestore/firestore';
+import { Account, Tps, Moduls, Laporans } from '../../models/firestore/firestore';
 
 @Injectable()
 export class FirestoreProvider {
@@ -17,8 +17,8 @@ export class FirestoreProvider {
   modulsCollection: AngularFirestoreCollection<Moduls>;
   moduls: Observable<Moduls[]>;
 
-  uploadsCollection: AngularFirestoreCollection<Uploads>;
-  uploads: Observable<Uploads[]>;
+  uploadsCollection: AngularFirestoreCollection<Laporans>;
+  uploads: Observable<Laporans[]>;
 
   constructor(
 

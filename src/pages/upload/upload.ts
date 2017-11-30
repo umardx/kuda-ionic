@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
-import { Moduls, Uploads } from '../../models/firestore/firestore';
+import { Moduls } from '../../models/firestore/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { UploadProvider } from '../../providers/upload/upload';
+import { Uploads } from '../../models/upload/upload'
 
 @IonicPage()
 @Component({
@@ -17,15 +18,21 @@ export class UploadPage {
 	course: string[];
 	moduls: Moduls[];
 
+	selectedNIM: number;
 	selectedCode: string;
 	selectedIndex: number;
+	selectedTitle: string;
 	selectedFile: File;
 
 	loading: Loading;
 
+	selectedFiles: FileList;
+	currentUpload: Uploads;
+
 	constructor(
 		public fp: FirestoreProvider,
 		public fire: AngularFireAuth,
+		public upSvc: UploadProvider,
 		public navCtrl: NavController,
 		public navParams: NavParams,
 		public loadingCtrl: LoadingController) {
@@ -43,6 +50,7 @@ export class UploadPage {
 				if (result.length>0) {
 					
 					this.updateCourseList(result[0].course);
+					this.updateSelectedNIM(result[0].nim);
 
 				} else {
 
@@ -62,6 +70,9 @@ export class UploadPage {
 
 	}
 
+	updateSelectedNIM(nim) {
+		this.selectedNIM = +nim;
+	}
 	updateCourseList(course) {
 
 		this.course = course;
@@ -96,6 +107,7 @@ export class UploadPage {
 	updateModuls(modul) {
 
 		this.moduls = modul
+		console.log(this.moduls)
 
 	}
 
@@ -112,17 +124,34 @@ export class UploadPage {
 
 	onChangeModul(modul) {
 
-		this.selectedIndex = +modul;
+		this.selectedIndex = +modul
+		for (let index = 0; index < this.moduls.length; ++index) {
+
+		    if (this.moduls[index].index == this.selectedIndex) {
+		    	this.selectedTitle = this.moduls[index].title
+
+		    }
+		}
+
+	}
+
+	updateselectedTitle(title) {
+
+		this.selectedTitle = title;
 
 	}
 
 	onChangeFile(file) {
 
+		this.selectedFiles = file.target.files;
+
 	}
 	
 	uploadLaporan() {
 
-		console.log('Upload Laporan Weh!');
+		let file = this.selectedFiles.item(0)
+		this.currentUpload.file = file;
+		this.upSvc.pushUpload(this.currentUpload, this.selectedCode, this.selectedIndex, this.selectedNIM, this.selectedTitle)
 		
 	}
 

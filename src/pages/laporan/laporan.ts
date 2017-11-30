@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, Loading, LoadingController, ToastC
 import { UploadPage } from '../../pages/upload/upload';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
-import { Uploads } from '../../models/firestore/firestore';
+import { Laporans } from '../../models/firestore/firestore';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @IonicPage()
@@ -13,7 +13,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 })
 export class LaporanPage {
 
-	uploads: Uploads[];
+	uploads: Laporans[];
 	nim: number;
 	email: string;
 	loading: Loading;

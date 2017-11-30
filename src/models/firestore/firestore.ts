@@ -27,12 +27,13 @@ export interface Tps {
 
 }
 
-export interface Uploads {
+export interface Laporans {
 
 	code: string;
 	createdAt: string;
 	file: string;
 	index: number;
+	key: string;
 	mark: number;
 	nim: number;
 	title: string;

@@ -1,6 +1,6 @@
-export interface Upload {
+export interface Uploads {
 
-	$key: string;
+	key: string;
 	file: File;
 	name: string;
 	url: string;
